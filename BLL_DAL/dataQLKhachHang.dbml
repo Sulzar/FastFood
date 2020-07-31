@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DAMN_CuaHangThucAnNhanh" Class="dataQLKhachHangDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-AN0VONI\SQLEXPRESS;Initial Catalog=DAMN_CuaHangThucAnNhanh;User ID=sa" SettingsObjectName="BLL_DAL.Properties.Settings" SettingsPropertyName="DAMN_CuaHangThucAnNhanhConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.QL_KHACHHANG" Member="QL_KHACHHANGs">
+    <Type Name="QL_KHACHHANG">
+      <Column Name="SDT" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CMND" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiemSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="QL_KHACHHANG_QL_HoaDon_BanHang" Member="QL_HoaDon_BanHangs" ThisKey="SDT" OtherKey="SDT" Type="QL_HoaDon_BanHang" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QL_ChiTietHoaDon" Member="QL_ChiTietHoaDons">
+    <Type Name="QL_ChiTietHoaDon">
+      <Column Name="MaHD" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaSP" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Soluong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DonGia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="QL_HoaDon_BanHang_QL_ChiTietHoaDon" Member="QL_HoaDon_BanHang" ThisKey="MaHD" OtherKey="MaHD" Type="QL_HoaDon_BanHang" IsForeignKey="true" />
+      <Association Name="QL_SanPham_QL_ChiTietHoaDon" Member="QL_SanPham" ThisKey="MaSP" OtherKey="MaSP" Type="QL_SanPham" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QL_HoaDon_BanHang" Member="QL_HoaDon_BanHangs">
+    <Type Name="QL_HoaDon_BanHang">
+      <Column Name="MaHD" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaND" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="NgayLap" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PhuongThuc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TienDua" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TienThua" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TongCong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="QL_HoaDon_BanHang_QL_ChiTietHoaDon" Member="QL_ChiTietHoaDons" ThisKey="MaHD" OtherKey="MaHD" Type="QL_ChiTietHoaDon" />
+      <Association Name="QL_KHACHHANG_QL_HoaDon_BanHang" Member="QL_KHACHHANG" ThisKey="SDT" OtherKey="SDT" Type="QL_KHACHHANG" IsForeignKey="true" />
+      <Association Name="QL_NguoiDung_QL_HoaDon_BanHang" Member="QL_NguoiDung" ThisKey="MaND" OtherKey="MaND" Type="QL_NguoiDung" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QL_LoaiSanPham" Member="QL_LoaiSanPhams">
+    <Type Name="QL_LoaiSanPham">
+      <Column Name="MaLoaiSP" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenLoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="QL_LoaiSanPham_QL_SanPham" Member="QL_SanPhams" ThisKey="MaLoaiSP" OtherKey="MaLoaiSP" Type="QL_SanPham" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QL_SanPham" Member="QL_SanPhams">
+    <Type Name="QL_SanPham">
+      <Column Name="MaSP" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenSanPham" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TinhTrang" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Gia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Hinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MaLoaiSP" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="QL_SanPham_QL_ChiTietHoaDon" Member="QL_ChiTietHoaDons" ThisKey="MaSP" OtherKey="MaSP" Type="QL_ChiTietHoaDon" />
+      <Association Name="QL_LoaiSanPham_QL_SanPham" Member="QL_LoaiSanPham" ThisKey="MaLoaiSP" OtherKey="MaLoaiSP" Type="QL_LoaiSanPham" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QL_NguoiDung" Member="QL_NguoiDungs">
+    <Type Name="QL_NguoiDung">
+      <Column Name="MaND" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="TenNguoiDung" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SoDienThoai" Type="System.String" DbType="NChar(11)" CanBeNull="true" />
+      <Column Name="HoatDong" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="QL_NguoiDung_QL_HoaDon_BanHang" Member="QL_HoaDon_BanHangs" ThisKey="MaND" OtherKey="MaND" Type="QL_HoaDon_BanHang" />
+    </Type>
+  </Table>
+</Database>
