@@ -7,14 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL_DAL;
 
 namespace GUI
 {
     public partial class frmKhachHang : Form
     {
+        qlKhachHang_BLL_DAL qlkh = new qlKhachHang_BLL_DAL();
         public frmKhachHang()
         {
             InitializeComponent();
+        }
+
+        private void frmKhachHang_Load(object sender, EventArgs e)
+        {
+            dataGridViewKhachHang.DataSource = qlkh.loadGridViewKhachHang();
         }
     }
 }

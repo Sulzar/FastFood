@@ -54,7 +54,6 @@
             this.pnTabHoz = new Guna.UI2.WinForms.Guna2Panel();
             this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
             this.gunaGradient2Panel1 = new Guna.UI.WinForms.GunaGradient2Panel();
-            this.pnShadowContainer = new Guna.UI.WinForms.GunaShadowPanel();
             this.pnContainer = new Guna.UI.WinForms.GunaPanel();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.pnLeft.SuspendLayout();
@@ -65,7 +64,6 @@
             this.pnSubTaiKhoan.SuspendLayout();
             this.pnMain.SuspendLayout();
             this.gunaGradient2Panel1.SuspendLayout();
-            this.pnShadowContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnLeft
@@ -78,9 +76,8 @@
             this.pnLeft.Controls.Add(this.pnTaiKhoan);
             this.pnLeft.Controls.Add(this.pnTabResize);
             this.pnLeft.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pnLeft.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnLeft.FillColor = System.Drawing.Color.Tomato;
+            this.pnLeft.FillColor = System.Drawing.SystemColors.Control;
             this.pnLeft.Location = new System.Drawing.Point(0, 0);
             this.pnLeft.Name = "pnLeft";
             this.pnLeft.ShadowDecoration.Parent = this.pnLeft;
@@ -93,25 +90,26 @@
             this.btnBaoCao.Animated = true;
             this.btnBaoCao.AnimationHoverSpeed = 0.07F;
             this.btnBaoCao.AnimationSpeed = 0.03F;
-            this.btnBaoCao.BaseColor1 = System.Drawing.Color.Tomato;
-            this.btnBaoCao.BaseColor2 = System.Drawing.Color.Tomato;
+            this.btnBaoCao.BackColor = System.Drawing.Color.Transparent;
+            this.btnBaoCao.BaseColor1 = System.Drawing.SystemColors.Control;
+            this.btnBaoCao.BaseColor2 = System.Drawing.SystemColors.Control;
             this.btnBaoCao.BorderColor = System.Drawing.Color.Black;
             this.btnBaoCao.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnBaoCao.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBaoCao.FocusedColor = System.Drawing.Color.Empty;
-            this.btnBaoCao.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnBaoCao.ForeColor = System.Drawing.Color.White;
+            this.btnBaoCao.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnBaoCao.ForeColor = System.Drawing.Color.Black;
             this.btnBaoCao.Image = ((System.Drawing.Image)(resources.GetObject("btnBaoCao.Image")));
             this.btnBaoCao.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnBaoCao.Location = new System.Drawing.Point(0, 369);
+            this.btnBaoCao.Location = new System.Drawing.Point(17, 380);
             this.btnBaoCao.Name = "btnBaoCao";
             this.btnBaoCao.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.btnBaoCao.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.btnBaoCao.OnHoverBorderColor = System.Drawing.Color.Black;
             this.btnBaoCao.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnBaoCao.OnHoverImage = null;
+            this.btnBaoCao.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btnBaoCao.OnHoverImage")));
             this.btnBaoCao.OnPressedColor = System.Drawing.Color.Black;
-            this.btnBaoCao.Size = new System.Drawing.Size(250, 55);
+            this.btnBaoCao.Radius = 6;
+            this.btnBaoCao.Size = new System.Drawing.Size(220, 55);
             this.btnBaoCao.TabIndex = 10;
             this.btnBaoCao.Text = "Báo cáo";
             this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
@@ -121,25 +119,26 @@
             this.btnTienBac.Animated = true;
             this.btnTienBac.AnimationHoverSpeed = 0.07F;
             this.btnTienBac.AnimationSpeed = 0.03F;
-            this.btnTienBac.BaseColor1 = System.Drawing.Color.Tomato;
-            this.btnTienBac.BaseColor2 = System.Drawing.Color.Tomato;
+            this.btnTienBac.BackColor = System.Drawing.Color.Transparent;
+            this.btnTienBac.BaseColor1 = System.Drawing.SystemColors.Control;
+            this.btnTienBac.BaseColor2 = System.Drawing.SystemColors.Control;
             this.btnTienBac.BorderColor = System.Drawing.Color.Black;
             this.btnTienBac.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnTienBac.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnTienBac.FocusedColor = System.Drawing.Color.Empty;
-            this.btnTienBac.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnTienBac.ForeColor = System.Drawing.Color.White;
+            this.btnTienBac.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnTienBac.ForeColor = System.Drawing.Color.Black;
             this.btnTienBac.Image = ((System.Drawing.Image)(resources.GetObject("btnTienBac.Image")));
             this.btnTienBac.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnTienBac.Location = new System.Drawing.Point(0, 314);
+            this.btnTienBac.Location = new System.Drawing.Point(17, 325);
             this.btnTienBac.Name = "btnTienBac";
             this.btnTienBac.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.btnTienBac.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.btnTienBac.OnHoverBorderColor = System.Drawing.Color.Black;
             this.btnTienBac.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnTienBac.OnHoverImage = null;
+            this.btnTienBac.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btnTienBac.OnHoverImage")));
             this.btnTienBac.OnPressedColor = System.Drawing.Color.Black;
-            this.btnTienBac.Size = new System.Drawing.Size(250, 55);
+            this.btnTienBac.Radius = 6;
+            this.btnTienBac.Size = new System.Drawing.Size(220, 55);
             this.btnTienBac.TabIndex = 9;
             this.btnTienBac.Text = "Tiền bạc";
             this.btnTienBac.Click += new System.EventHandler(this.btnBaoCao_Click);
@@ -149,25 +148,26 @@
             this.btnKhachHang.Animated = true;
             this.btnKhachHang.AnimationHoverSpeed = 0.07F;
             this.btnKhachHang.AnimationSpeed = 0.03F;
-            this.btnKhachHang.BaseColor1 = System.Drawing.Color.Tomato;
-            this.btnKhachHang.BaseColor2 = System.Drawing.Color.Tomato;
+            this.btnKhachHang.BackColor = System.Drawing.Color.Transparent;
+            this.btnKhachHang.BaseColor1 = System.Drawing.SystemColors.Control;
+            this.btnKhachHang.BaseColor2 = System.Drawing.SystemColors.Control;
             this.btnKhachHang.BorderColor = System.Drawing.Color.Black;
             this.btnKhachHang.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnKhachHang.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnKhachHang.FocusedColor = System.Drawing.Color.Empty;
-            this.btnKhachHang.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnKhachHang.ForeColor = System.Drawing.Color.White;
+            this.btnKhachHang.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnKhachHang.ForeColor = System.Drawing.Color.Black;
             this.btnKhachHang.Image = ((System.Drawing.Image)(resources.GetObject("btnKhachHang.Image")));
             this.btnKhachHang.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnKhachHang.Location = new System.Drawing.Point(0, 259);
+            this.btnKhachHang.Location = new System.Drawing.Point(17, 270);
             this.btnKhachHang.Name = "btnKhachHang";
             this.btnKhachHang.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.btnKhachHang.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.btnKhachHang.OnHoverBorderColor = System.Drawing.Color.Black;
             this.btnKhachHang.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnKhachHang.OnHoverImage = null;
+            this.btnKhachHang.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btnKhachHang.OnHoverImage")));
             this.btnKhachHang.OnPressedColor = System.Drawing.Color.Black;
-            this.btnKhachHang.Size = new System.Drawing.Size(250, 55);
+            this.btnKhachHang.Radius = 6;
+            this.btnKhachHang.Size = new System.Drawing.Size(220, 55);
             this.btnKhachHang.TabIndex = 8;
             this.btnKhachHang.Text = "Khách hàng";
             this.btnKhachHang.Click += new System.EventHandler(this.btnKhachHang_Click);
@@ -177,25 +177,26 @@
             this.btnQuanLy.Animated = true;
             this.btnQuanLy.AnimationHoverSpeed = 0.07F;
             this.btnQuanLy.AnimationSpeed = 0.03F;
-            this.btnQuanLy.BaseColor1 = System.Drawing.Color.Tomato;
-            this.btnQuanLy.BaseColor2 = System.Drawing.Color.Tomato;
+            this.btnQuanLy.BackColor = System.Drawing.Color.Transparent;
+            this.btnQuanLy.BaseColor1 = System.Drawing.SystemColors.Control;
+            this.btnQuanLy.BaseColor2 = System.Drawing.SystemColors.Control;
             this.btnQuanLy.BorderColor = System.Drawing.Color.Black;
             this.btnQuanLy.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnQuanLy.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnQuanLy.FocusedColor = System.Drawing.Color.Empty;
-            this.btnQuanLy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnQuanLy.ForeColor = System.Drawing.Color.White;
+            this.btnQuanLy.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnQuanLy.ForeColor = System.Drawing.Color.Black;
             this.btnQuanLy.Image = ((System.Drawing.Image)(resources.GetObject("btnQuanLy.Image")));
             this.btnQuanLy.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnQuanLy.Location = new System.Drawing.Point(0, 204);
+            this.btnQuanLy.Location = new System.Drawing.Point(17, 215);
             this.btnQuanLy.Name = "btnQuanLy";
             this.btnQuanLy.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.btnQuanLy.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.btnQuanLy.OnHoverBorderColor = System.Drawing.Color.Black;
             this.btnQuanLy.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnQuanLy.OnHoverImage = null;
+            this.btnQuanLy.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btnQuanLy.OnHoverImage")));
             this.btnQuanLy.OnPressedColor = System.Drawing.Color.Black;
-            this.btnQuanLy.Size = new System.Drawing.Size(250, 55);
+            this.btnQuanLy.Radius = 6;
+            this.btnQuanLy.Size = new System.Drawing.Size(220, 55);
             this.btnQuanLy.TabIndex = 7;
             this.btnQuanLy.Text = "Quản lý";
             this.btnQuanLy.Click += new System.EventHandler(this.btnQuanLy_Click);
@@ -205,27 +206,29 @@
             this.gunaGradientButton1.Animated = true;
             this.gunaGradientButton1.AnimationHoverSpeed = 0.07F;
             this.gunaGradientButton1.AnimationSpeed = 0.03F;
-            this.gunaGradientButton1.BaseColor1 = System.Drawing.Color.Tomato;
-            this.gunaGradientButton1.BaseColor2 = System.Drawing.Color.Tomato;
+            this.gunaGradientButton1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaGradientButton1.BaseColor1 = System.Drawing.SystemColors.Control;
+            this.gunaGradientButton1.BaseColor2 = System.Drawing.SystemColors.Control;
             this.gunaGradientButton1.BorderColor = System.Drawing.Color.Black;
             this.gunaGradientButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaGradientButton1.Dock = System.Windows.Forms.DockStyle.Top;
             this.gunaGradientButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaGradientButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaGradientButton1.ForeColor = System.Drawing.Color.White;
+            this.gunaGradientButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaGradientButton1.ForeColor = System.Drawing.Color.Black;
             this.gunaGradientButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaGradientButton1.Image")));
             this.gunaGradientButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaGradientButton1.Location = new System.Drawing.Point(0, 149);
+            this.gunaGradientButton1.Location = new System.Drawing.Point(17, 160);
             this.gunaGradientButton1.Name = "gunaGradientButton1";
             this.gunaGradientButton1.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.gunaGradientButton1.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.gunaGradientButton1.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaGradientButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaGradientButton1.OnHoverImage = null;
+            this.gunaGradientButton1.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaGradientButton1.OnHoverImage")));
             this.gunaGradientButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaGradientButton1.Size = new System.Drawing.Size(250, 55);
+            this.gunaGradientButton1.Radius = 6;
+            this.gunaGradientButton1.Size = new System.Drawing.Size(220, 55);
             this.gunaGradientButton1.TabIndex = 6;
-            this.gunaGradientButton1.Text = "Phần mềm thanh toán";
+            this.gunaGradientButton1.Text = "POS";
+            this.gunaGradientButton1.Click += new System.EventHandler(this.btnPOS_Click);
             // 
             // pnTaiKhoan
             // 
@@ -282,7 +285,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(89, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 23);
@@ -295,7 +298,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(92, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 18);
@@ -307,9 +310,8 @@
             this.pnTabResize.BackColor = System.Drawing.Color.Transparent;
             this.pnTabResize.Controls.Add(this.gunaPictureBox1);
             this.pnTabResize.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pnTabResize.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.pnTabResize.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnTabResize.FillColor = System.Drawing.Color.Tomato;
+            this.pnTabResize.FillColor = System.Drawing.SystemColors.Control;
             this.pnTabResize.Location = new System.Drawing.Point(0, 0);
             this.pnTabResize.Name = "pnTabResize";
             this.pnTabResize.ShadowDecoration.Parent = this.pnTabResize;
@@ -346,7 +348,7 @@
             this.btnCollapseMenu.Name = "btnCollapseMenu";
             this.btnCollapseMenu.PressedState.ImageSize = new System.Drawing.Size(21, 21);
             this.btnCollapseMenu.PressedState.Parent = this.btnCollapseMenu;
-            this.btnCollapseMenu.Size = new System.Drawing.Size(50, 50);
+            this.btnCollapseMenu.Size = new System.Drawing.Size(50, 44);
             this.btnCollapseMenu.TabIndex = 6;
             this.btnCollapseMenu.UseTransparentBackground = true;
             this.btnCollapseMenu.Click += new System.EventHandler(this.btnCollapseMenu_Click);
@@ -366,7 +368,7 @@
             this.btnFullMenu.Name = "btnFullMenu";
             this.btnFullMenu.PressedState.ImageSize = new System.Drawing.Size(21, 21);
             this.btnFullMenu.PressedState.Parent = this.btnFullMenu;
-            this.btnFullMenu.Size = new System.Drawing.Size(50, 50);
+            this.btnFullMenu.Size = new System.Drawing.Size(50, 44);
             this.btnFullMenu.TabIndex = 5;
             this.btnFullMenu.UseTransparentBackground = true;
             this.btnFullMenu.Click += new System.EventHandler(this.btnFullMenu_Click);
@@ -412,7 +414,7 @@
             // pnSubTaiKhoan
             // 
             this.pnSubTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnSubTaiKhoan.BackColor = System.Drawing.Color.LightSalmon;
+            this.pnSubTaiKhoan.BackColor = System.Drawing.SystemColors.Control;
             this.pnSubTaiKhoan.Controls.Add(this.guna2Button3);
             this.pnSubTaiKhoan.Controls.Add(this.guna2Button1);
             this.pnSubTaiKhoan.Location = new System.Drawing.Point(3, 542);
@@ -492,9 +494,9 @@
             this.pnTabHoz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnTabHoz.BackColor = System.Drawing.Color.Transparent;
-            this.pnTabHoz.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(38)))), ((int)(((byte)(0)))));
+            this.pnTabHoz.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(227)))), ((int)(((byte)(227)))));
             this.pnTabHoz.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.pnTabHoz.FillColor = System.Drawing.Color.White;
+            this.pnTabHoz.FillColor = System.Drawing.SystemColors.Control;
             this.pnTabHoz.Location = new System.Drawing.Point(0, 50);
             this.pnTabHoz.Name = "pnTabHoz";
             this.pnTabHoz.ShadowDecoration.Parent = this.pnTabHoz;
@@ -504,10 +506,11 @@
             // 
             // pnMain
             // 
+            this.pnMain.BackColor = System.Drawing.SystemColors.Control;
             this.pnMain.Controls.Add(this.pnSubTaiKhoan);
             this.pnMain.Controls.Add(this.pnTabHoz);
             this.pnMain.Controls.Add(this.gunaGradient2Panel1);
-            this.pnMain.Controls.Add(this.pnShadowContainer);
+            this.pnMain.Controls.Add(this.pnContainer);
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.Location = new System.Drawing.Point(250, 0);
             this.pnMain.Name = "pnMain";
@@ -528,31 +531,17 @@
             this.gunaGradient2Panel1.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
             this.gunaGradient2Panel1.Location = new System.Drawing.Point(0, 0);
             this.gunaGradient2Panel1.Name = "gunaGradient2Panel1";
-            this.gunaGradient2Panel1.Size = new System.Drawing.Size(1100, 50);
+            this.gunaGradient2Panel1.Size = new System.Drawing.Size(1100, 44);
             this.gunaGradient2Panel1.TabIndex = 12;
-            // 
-            // pnShadowContainer
-            // 
-            this.pnShadowContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnShadowContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnShadowContainer.BaseColor = System.Drawing.Color.White;
-            this.pnShadowContainer.Controls.Add(this.pnContainer);
-            this.pnShadowContainer.Location = new System.Drawing.Point(7, 102);
-            this.pnShadowContainer.Name = "pnShadowContainer";
-            this.pnShadowContainer.ShadowColor = System.Drawing.Color.Black;
-            this.pnShadowContainer.Size = new System.Drawing.Size(1081, 536);
-            this.pnShadowContainer.TabIndex = 13;
             // 
             // pnContainer
             // 
             this.pnContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnContainer.Location = new System.Drawing.Point(17, 11);
+            this.pnContainer.Location = new System.Drawing.Point(16, 108);
             this.pnContainer.Name = "pnContainer";
-            this.pnContainer.Size = new System.Drawing.Size(1047, 505);
+            this.pnContainer.Size = new System.Drawing.Size(1072, 530);
             this.pnContainer.TabIndex = 0;
             // 
             // guna2DragControl1
@@ -580,7 +569,6 @@
             this.pnSubTaiKhoan.ResumeLayout(false);
             this.pnMain.ResumeLayout(false);
             this.gunaGradient2Panel1.ResumeLayout(false);
-            this.pnShadowContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -611,7 +599,6 @@
         private Guna.UI.WinForms.GunaGradientButton btnQuanLy;
         private Guna.UI.WinForms.GunaGradientButton btnTienBac;
         private Guna.UI.WinForms.GunaGradientButton btnBaoCao;
-        private Guna.UI.WinForms.GunaShadowPanel pnShadowContainer;
         private Guna.UI.WinForms.GunaPanel pnContainer;
     }
 }

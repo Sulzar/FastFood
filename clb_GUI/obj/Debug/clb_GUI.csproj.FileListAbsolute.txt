@@ -11,4 +11,4 @@ E:\Project\FastFoodManager\clb_GUI\obj\Debug\clb_GUI.csproj.CopyComplete
 E:\Project\FastFoodManager\clb_GUI\obj\Debug\clb_GUI.dll
 E:\Project\FastFoodManager\clb_GUI\obj\Debug\clb_GUI.pdb
 E:\Project\FastFoodManager\clb_GUI\bin\Debug\Guna.UI.dll
-E:\Project\FastFoodManager\clb_GUI\obj\Debug\clb_GUI.usPosSanPham.resources
+E:\Project\FastFoodManager\clb_GUI\obj\Debug\clb_GUI.csprojAssemblyReference.cache

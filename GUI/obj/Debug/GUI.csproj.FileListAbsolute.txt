@@ -21,3 +21,4 @@ E:\Project\FastFoodManager\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
 E:\Project\FastFoodManager\GUI\bin\Debug\Guna.UI.dll
 E:\Project\FastFoodManager\GUI\obj\Debug\GUI.frmPOS.resources
 E:\Project\FastFoodManager\GUI\obj\Debug\GUI.frmKhachHang_1.resources
+E:\Project\FastFoodManager\GUI\obj\Debug\GUI.frmPhieuDatHang.resources

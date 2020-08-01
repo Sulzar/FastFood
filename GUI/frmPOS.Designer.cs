@@ -152,8 +152,8 @@
             this.gunaAdvenceTileButton11 = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaGradientButton7 = new Guna.UI.WinForms.GunaGradientButton();
-            this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaVScrollBar1 = new Guna.UI.WinForms.GunaVScrollBar();
+            this.btnBackToManager = new Guna.UI.WinForms.GunaAdvenceButton();
             this.guna2Panel1.SuspendLayout();
             this.gunaGradient2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -2252,22 +2252,6 @@
             this.gunaGradientButton7.Text = "Thanh toán";
             this.gunaGradientButton7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // gunaControlBox1
-            // 
-            this.gunaControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaControlBox1.AnimationHoverSpeed = 0.07F;
-            this.gunaControlBox1.AnimationSpeed = 0.03F;
-            this.gunaControlBox1.ControlBoxType = Guna.UI.WinForms.FormControlBoxType.MaximizeBox;
-            this.gunaControlBox1.IconColor = System.Drawing.Color.Gray;
-            this.gunaControlBox1.IconSize = 15F;
-            this.gunaControlBox1.Location = new System.Drawing.Point(1359, 5);
-            this.gunaControlBox1.Name = "gunaControlBox1";
-            this.gunaControlBox1.OnHoverBackColor = System.Drawing.Color.White;
-            this.gunaControlBox1.OnHoverIconColor = System.Drawing.Color.White;
-            this.gunaControlBox1.OnPressedColor = System.Drawing.Color.White;
-            this.gunaControlBox1.Size = new System.Drawing.Size(45, 29);
-            this.gunaControlBox1.TabIndex = 14;
-            // 
             // gunaVScrollBar1
             // 
             this.gunaVScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -2282,13 +2266,46 @@
             this.gunaVScrollBar1.ThumbHoverColor = System.Drawing.Color.Gray;
             this.gunaVScrollBar1.ThumbPressedColor = System.Drawing.Color.DarkGray;
             // 
+            // btnBackToManager
+            // 
+            this.btnBackToManager.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBackToManager.AnimationHoverSpeed = 0.07F;
+            this.btnBackToManager.AnimationSpeed = 0.03F;
+            this.btnBackToManager.BaseColor = System.Drawing.SystemColors.Control;
+            this.btnBackToManager.BorderColor = System.Drawing.Color.Black;
+            this.btnBackToManager.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btnBackToManager.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnBackToManager.CheckedForeColor = System.Drawing.Color.White;
+            this.btnBackToManager.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnBackToManager.CheckedImage")));
+            this.btnBackToManager.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnBackToManager.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnBackToManager.FocusedColor = System.Drawing.Color.Empty;
+            this.btnBackToManager.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnBackToManager.ForeColor = System.Drawing.Color.Tomato;
+            this.btnBackToManager.Image = ((System.Drawing.Image)(resources.GetObject("btnBackToManager.Image")));
+            this.btnBackToManager.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnBackToManager.LineColor = System.Drawing.Color.Empty;
+            this.btnBackToManager.Location = new System.Drawing.Point(1201, 9);
+            this.btnBackToManager.Name = "btnBackToManager";
+            this.btnBackToManager.OnHoverBaseColor = System.Drawing.Color.Empty;
+            this.btnBackToManager.OnHoverBorderColor = System.Drawing.Color.Empty;
+            this.btnBackToManager.OnHoverForeColor = System.Drawing.Color.DarkRed;
+            this.btnBackToManager.OnHoverImage = null;
+            this.btnBackToManager.OnHoverLineColor = System.Drawing.Color.Empty;
+            this.btnBackToManager.OnPressedColor = System.Drawing.Color.Empty;
+            this.btnBackToManager.Size = new System.Drawing.Size(200, 30);
+            this.btnBackToManager.TabIndex = 16;
+            this.btnBackToManager.Text = "Trở về trang quản lý";
+            this.btnBackToManager.Visible = false;
+            this.btnBackToManager.Click += new System.EventHandler(this.btnBackToManager_Click);
+            // 
             // frmPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1406, 830);
+            this.Controls.Add(this.btnBackToManager);
             this.Controls.Add(this.gunaVScrollBar1);
-            this.Controls.Add(this.gunaControlBox1);
             this.Controls.Add(this.gunaGradientButton7);
             this.Controls.Add(this.guna2Panel6);
             this.Controls.Add(this.gunaPanel8);
@@ -2473,7 +2490,6 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel23;
         private Guna.UI.WinForms.GunaLabel gunaLabel22;
         private Guna.UI.WinForms.GunaLabel gunaLabel21;
-        private Guna.UI.WinForms.GunaControlBox gunaControlBox1;
         private Guna.UI.WinForms.GunaPanel gunaPanel13;
         private Guna.UI.WinForms.GunaGradient2Panel gunaGradient2Panel13;
         private Guna.UI.WinForms.GunaLabel gunaLabel36;
@@ -2502,5 +2518,6 @@
         private Guna.UI.WinForms.GunaLabel lbTienKhachDua;
         private Guna.UI.WinForms.GunaAdvenceButton btnThe;
         private Guna.UI.WinForms.GunaAdvenceButton btnTienMat;
+        private Guna.UI.WinForms.GunaAdvenceButton btnBackToManager;
     }
 }
