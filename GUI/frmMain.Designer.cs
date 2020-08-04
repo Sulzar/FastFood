@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pnLeft = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnKho = new Guna.UI.WinForms.GunaGradientButton();
             this.btnBaoCao = new Guna.UI.WinForms.GunaGradientButton();
             this.btnTienBac = new Guna.UI.WinForms.GunaGradientButton();
             this.btnKhachHang = new Guna.UI.WinForms.GunaGradientButton();
@@ -68,6 +69,7 @@
             // 
             // pnLeft
             // 
+            this.pnLeft.Controls.Add(this.btnKho);
             this.pnLeft.Controls.Add(this.btnBaoCao);
             this.pnLeft.Controls.Add(this.btnTienBac);
             this.pnLeft.Controls.Add(this.btnKhachHang);
@@ -85,6 +87,35 @@
             this.pnLeft.Size = new System.Drawing.Size(250, 650);
             this.pnLeft.TabIndex = 4;
             // 
+            // btnKho
+            // 
+            this.btnKho.Animated = true;
+            this.btnKho.AnimationHoverSpeed = 0.07F;
+            this.btnKho.AnimationSpeed = 0.03F;
+            this.btnKho.BackColor = System.Drawing.Color.Transparent;
+            this.btnKho.BaseColor1 = System.Drawing.SystemColors.Control;
+            this.btnKho.BaseColor2 = System.Drawing.SystemColors.Control;
+            this.btnKho.BorderColor = System.Drawing.Color.Black;
+            this.btnKho.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnKho.FocusedColor = System.Drawing.Color.Empty;
+            this.btnKho.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnKho.ForeColor = System.Drawing.Color.Black;
+            this.btnKho.Image = ((System.Drawing.Image)(resources.GetObject("btnKho.Image")));
+            this.btnKho.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnKho.Location = new System.Drawing.Point(17, 276);
+            this.btnKho.Name = "btnKho";
+            this.btnKho.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            this.btnKho.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
+            this.btnKho.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnKho.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnKho.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btnKho.OnHoverImage")));
+            this.btnKho.OnPressedColor = System.Drawing.Color.Black;
+            this.btnKho.Radius = 6;
+            this.btnKho.Size = new System.Drawing.Size(220, 55);
+            this.btnKho.TabIndex = 11;
+            this.btnKho.Text = "Kho";
+            this.btnKho.Click += new System.EventHandler(this.btnKho_Click);
+            // 
             // btnBaoCao
             // 
             this.btnBaoCao.Animated = true;
@@ -100,7 +131,7 @@
             this.btnBaoCao.ForeColor = System.Drawing.Color.Black;
             this.btnBaoCao.Image = ((System.Drawing.Image)(resources.GetObject("btnBaoCao.Image")));
             this.btnBaoCao.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnBaoCao.Location = new System.Drawing.Point(17, 380);
+            this.btnBaoCao.Location = new System.Drawing.Point(17, 459);
             this.btnBaoCao.Name = "btnBaoCao";
             this.btnBaoCao.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.btnBaoCao.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
@@ -129,7 +160,7 @@
             this.btnTienBac.ForeColor = System.Drawing.Color.Black;
             this.btnTienBac.Image = ((System.Drawing.Image)(resources.GetObject("btnTienBac.Image")));
             this.btnTienBac.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnTienBac.Location = new System.Drawing.Point(17, 325);
+            this.btnTienBac.Location = new System.Drawing.Point(17, 398);
             this.btnTienBac.Name = "btnTienBac";
             this.btnTienBac.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.btnTienBac.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
@@ -158,7 +189,7 @@
             this.btnKhachHang.ForeColor = System.Drawing.Color.Black;
             this.btnKhachHang.Image = ((System.Drawing.Image)(resources.GetObject("btnKhachHang.Image")));
             this.btnKhachHang.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnKhachHang.Location = new System.Drawing.Point(17, 270);
+            this.btnKhachHang.Location = new System.Drawing.Point(17, 337);
             this.btnKhachHang.Name = "btnKhachHang";
             this.btnKhachHang.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
             this.btnKhachHang.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
@@ -600,5 +631,6 @@
         private Guna.UI.WinForms.GunaGradientButton btnTienBac;
         private Guna.UI.WinForms.GunaGradientButton btnBaoCao;
         private Guna.UI.WinForms.GunaPanel pnContainer;
+        private Guna.UI.WinForms.GunaGradientButton btnKho;
     }
 }

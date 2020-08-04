@@ -28,157 +28,211 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usThemKhachHang));
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnLuu = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btnThoat = new System.Windows.Forms.PictureBox();
-            this.txtHoTen = new System.Windows.Forms.TextBox();
-            this.txtCMND = new System.Windows.Forms.TextBox();
-            this.lbSDT = new System.Windows.Forms.Label();
-            this.lbCMND = new System.Windows.Forms.Label();
-            this.txtSoDienThoai = new System.Windows.Forms.TextBox();
-            this.lbHoTen = new System.Windows.Forms.Label();
-            this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnThoat)).BeginInit();
+            this.components = new System.ComponentModel.Container();
+            this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.grbHoTenKhachHang = new System.Windows.Forms.GroupBox();
+            this.txtTenKhachHang = new Guna.UI2.WinForms.Guna2TextBox();
+            this.grbSoDienThoai = new System.Windows.Forms.GroupBox();
+            this.txtSoDienThoai = new Guna.UI2.WinForms.Guna2TextBox();
+            this.grbCMND = new System.Windows.Forms.GroupBox();
+            this.txtCMND = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnKhachHang = new Guna.UI.WinForms.GunaGradientButton();
+            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.grbHoTenKhachHang.SuspendLayout();
+            this.grbSoDienThoai.SuspendLayout();
+            this.grbCMND.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel2
+            // gunaElipse1
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.btnLuu);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.txtHoTen);
-            this.panel2.Controls.Add(this.txtCMND);
-            this.panel2.Controls.Add(this.lbSDT);
-            this.panel2.Controls.Add(this.lbCMND);
-            this.panel2.Controls.Add(this.txtSoDienThoai);
-            this.panel2.Controls.Add(this.lbHoTen);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(516, 264);
-            this.panel2.TabIndex = 10;
+            this.gunaElipse1.TargetControl = this;
             // 
-            // btnLuu
+            // grbHoTenKhachHang
             // 
-            this.btnLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(184)))), ((int)(((byte)(0)))));
-            this.btnLuu.FlatAppearance.BorderSize = 0;
-            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(203, 201);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(161, 41);
-            this.btnLuu.TabIndex = 10;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = false;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            this.grbHoTenKhachHang.Controls.Add(this.txtTenKhachHang);
+            this.grbHoTenKhachHang.Location = new System.Drawing.Point(22, 27);
+            this.grbHoTenKhachHang.Margin = new System.Windows.Forms.Padding(5, 3, 5, 5);
+            this.grbHoTenKhachHang.Name = "grbHoTenKhachHang";
+            this.grbHoTenKhachHang.Size = new System.Drawing.Size(306, 59);
+            this.grbHoTenKhachHang.TabIndex = 9;
+            this.grbHoTenKhachHang.TabStop = false;
+            this.grbHoTenKhachHang.Text = "Họ tên khách hàng";
             // 
-            // panel4
+            // txtTenKhachHang
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel4.Controls.Add(this.btnThoat);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(514, 35);
-            this.panel4.TabIndex = 8;
+            this.txtTenKhachHang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTenKhachHang.BackColor = System.Drawing.Color.Transparent;
+            this.txtTenKhachHang.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtTenKhachHang.BorderRadius = 3;
+            this.txtTenKhachHang.BorderThickness = 0;
+            this.txtTenKhachHang.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTenKhachHang.DefaultText = "";
+            this.txtTenKhachHang.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTenKhachHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTenKhachHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTenKhachHang.DisabledState.Parent = this.txtTenKhachHang;
+            this.txtTenKhachHang.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTenKhachHang.FillColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtTenKhachHang.FocusedState.BorderColor = System.Drawing.SystemColors.Control;
+            this.txtTenKhachHang.FocusedState.Parent = this.txtTenKhachHang;
+            this.txtTenKhachHang.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtTenKhachHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.txtTenKhachHang.HoverState.BorderColor = System.Drawing.SystemColors.Control;
+            this.txtTenKhachHang.HoverState.Parent = this.txtTenKhachHang;
+            this.txtTenKhachHang.Location = new System.Drawing.Point(7, 22);
+            this.txtTenKhachHang.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTenKhachHang.Name = "txtTenKhachHang";
+            this.txtTenKhachHang.PasswordChar = '\0';
+            this.txtTenKhachHang.PlaceholderText = "Họ tên khách hàng";
+            this.txtTenKhachHang.SelectedText = "";
+            this.txtTenKhachHang.ShadowDecoration.Parent = this.txtTenKhachHang;
+            this.txtTenKhachHang.Size = new System.Drawing.Size(283, 27);
+            this.txtTenKhachHang.TabIndex = 0;
             // 
-            // btnThoat
+            // grbSoDienThoai
             // 
-            this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
-            this.btnThoat.Location = new System.Drawing.Point(484, 4);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(27, 28);
-            this.btnThoat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnThoat.TabIndex = 0;
-            this.btnThoat.TabStop = false;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
-            // txtHoTen
-            // 
-            this.txtHoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHoTen.Location = new System.Drawing.Point(203, 52);
-            this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(280, 24);
-            this.txtHoTen.TabIndex = 4;
-            // 
-            // txtCMND
-            // 
-            this.txtCMND.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCMND.Location = new System.Drawing.Point(203, 99);
-            this.txtCMND.Name = "txtCMND";
-            this.txtCMND.Size = new System.Drawing.Size(280, 24);
-            this.txtCMND.TabIndex = 5;
-            // 
-            // lbSDT
-            // 
-            this.lbSDT.AutoSize = true;
-            this.lbSDT.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSDT.Location = new System.Drawing.Point(27, 146);
-            this.lbSDT.Name = "lbSDT";
-            this.lbSDT.Size = new System.Drawing.Size(123, 25);
-            this.lbSDT.TabIndex = 0;
-            this.lbSDT.Text = "Số điện thoại";
-            // 
-            // lbCMND
-            // 
-            this.lbCMND.AutoSize = true;
-            this.lbCMND.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCMND.Location = new System.Drawing.Point(29, 99);
-            this.lbCMND.Name = "lbCMND";
-            this.lbCMND.Size = new System.Drawing.Size(68, 25);
-            this.lbCMND.TabIndex = 2;
-            this.lbCMND.Text = "CMND";
+            this.grbSoDienThoai.Controls.Add(this.txtSoDienThoai);
+            this.grbSoDienThoai.Location = new System.Drawing.Point(22, 94);
+            this.grbSoDienThoai.Margin = new System.Windows.Forms.Padding(5, 3, 5, 5);
+            this.grbSoDienThoai.Name = "grbSoDienThoai";
+            this.grbSoDienThoai.Size = new System.Drawing.Size(306, 59);
+            this.grbSoDienThoai.TabIndex = 10;
+            this.grbSoDienThoai.TabStop = false;
+            this.grbSoDienThoai.Text = "Số điện thoại";
             // 
             // txtSoDienThoai
             // 
-            this.txtSoDienThoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoDienThoai.Location = new System.Drawing.Point(203, 146);
+            this.txtSoDienThoai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSoDienThoai.BackColor = System.Drawing.Color.Transparent;
+            this.txtSoDienThoai.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtSoDienThoai.BorderRadius = 3;
+            this.txtSoDienThoai.BorderThickness = 0;
+            this.txtSoDienThoai.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSoDienThoai.DefaultText = "";
+            this.txtSoDienThoai.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSoDienThoai.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSoDienThoai.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSoDienThoai.DisabledState.Parent = this.txtSoDienThoai;
+            this.txtSoDienThoai.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSoDienThoai.FillColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtSoDienThoai.FocusedState.BorderColor = System.Drawing.SystemColors.Control;
+            this.txtSoDienThoai.FocusedState.Parent = this.txtSoDienThoai;
+            this.txtSoDienThoai.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtSoDienThoai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.txtSoDienThoai.HoverState.BorderColor = System.Drawing.SystemColors.Control;
+            this.txtSoDienThoai.HoverState.Parent = this.txtSoDienThoai;
+            this.txtSoDienThoai.Location = new System.Drawing.Point(7, 25);
+            this.txtSoDienThoai.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoDienThoai.Name = "txtSoDienThoai";
-            this.txtSoDienThoai.Size = new System.Drawing.Size(280, 24);
-            this.txtSoDienThoai.TabIndex = 6;
+            this.txtSoDienThoai.PasswordChar = '\0';
+            this.txtSoDienThoai.PlaceholderText = "Số điện thoại";
+            this.txtSoDienThoai.SelectedText = "";
+            this.txtSoDienThoai.ShadowDecoration.Parent = this.txtSoDienThoai;
+            this.txtSoDienThoai.Size = new System.Drawing.Size(292, 27);
+            this.txtSoDienThoai.TabIndex = 0;
             // 
-            // lbHoTen
+            // grbCMND
             // 
-            this.lbHoTen.AutoSize = true;
-            this.lbHoTen.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHoTen.Location = new System.Drawing.Point(27, 52);
-            this.lbHoTen.Name = "lbHoTen";
-            this.lbHoTen.Size = new System.Drawing.Size(68, 25);
-            this.lbHoTen.TabIndex = 1;
-            this.lbHoTen.Text = "Họ tên";
+            this.grbCMND.Controls.Add(this.txtCMND);
+            this.grbCMND.Location = new System.Drawing.Point(22, 172);
+            this.grbCMND.Margin = new System.Windows.Forms.Padding(5, 3, 5, 5);
+            this.grbCMND.Name = "grbCMND";
+            this.grbCMND.Size = new System.Drawing.Size(306, 59);
+            this.grbCMND.TabIndex = 11;
+            this.grbCMND.TabStop = false;
+            this.grbCMND.Text = "CMND";
+            // 
+            // txtCMND
+            // 
+            this.txtCMND.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCMND.BackColor = System.Drawing.Color.Transparent;
+            this.txtCMND.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtCMND.BorderRadius = 3;
+            this.txtCMND.BorderThickness = 0;
+            this.txtCMND.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCMND.DefaultText = "";
+            this.txtCMND.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCMND.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCMND.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCMND.DisabledState.Parent = this.txtCMND;
+            this.txtCMND.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCMND.FillColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtCMND.FocusedState.BorderColor = System.Drawing.SystemColors.Control;
+            this.txtCMND.FocusedState.Parent = this.txtCMND;
+            this.txtCMND.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtCMND.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.txtCMND.HoverState.BorderColor = System.Drawing.SystemColors.Control;
+            this.txtCMND.HoverState.Parent = this.txtCMND;
+            this.txtCMND.Location = new System.Drawing.Point(7, 25);
+            this.txtCMND.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCMND.Name = "txtCMND";
+            this.txtCMND.PasswordChar = '\0';
+            this.txtCMND.PlaceholderText = "CMND";
+            this.txtCMND.SelectedText = "";
+            this.txtCMND.ShadowDecoration.Parent = this.txtCMND;
+            this.txtCMND.Size = new System.Drawing.Size(292, 27);
+            this.txtCMND.TabIndex = 0;
+            // 
+            // btnKhachHang
+            // 
+            this.btnKhachHang.AnimationHoverSpeed = 0.07F;
+            this.btnKhachHang.AnimationSpeed = 0.03F;
+            this.btnKhachHang.BackColor = System.Drawing.Color.Transparent;
+            this.btnKhachHang.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            this.btnKhachHang.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
+            this.btnKhachHang.BorderColor = System.Drawing.Color.Black;
+            this.btnKhachHang.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnKhachHang.FocusedColor = System.Drawing.Color.Empty;
+            this.btnKhachHang.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnKhachHang.ForeColor = System.Drawing.Color.White;
+            this.btnKhachHang.Image = null;
+            this.btnKhachHang.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnKhachHang.Location = new System.Drawing.Point(61, 253);
+            this.btnKhachHang.Name = "btnKhachHang";
+            this.btnKhachHang.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(145)))), ((int)(((byte)(221)))));
+            this.btnKhachHang.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(85)))), ((int)(((byte)(255)))));
+            this.btnKhachHang.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnKhachHang.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnKhachHang.OnHoverImage = null;
+            this.btnKhachHang.OnPressedColor = System.Drawing.Color.Black;
+            this.btnKhachHang.Radius = 4;
+            this.btnKhachHang.Size = new System.Drawing.Size(214, 42);
+            this.btnKhachHang.TabIndex = 12;
+            this.btnKhachHang.Text = "Thêm khách hàng";
+            this.btnKhachHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnKhachHang.Click += new System.EventHandler(this.btnKhachHang_Click);
             // 
             // usThemKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel2);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Controls.Add(this.btnKhachHang);
+            this.Controls.Add(this.grbCMND);
+            this.Controls.Add(this.grbSoDienThoai);
+            this.Controls.Add(this.grbHoTenKhachHang);
             this.Name = "usThemKhachHang";
-            this.Size = new System.Drawing.Size(522, 270);
-            this.Tag = "";
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnThoat)).EndInit();
+            this.Size = new System.Drawing.Size(352, 328);
+            this.grbHoTenKhachHang.ResumeLayout(false);
+            this.grbSoDienThoai.ResumeLayout(false);
+            this.grbCMND.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox btnThoat;
-        private System.Windows.Forms.TextBox txtHoTen;
-        private System.Windows.Forms.TextBox txtCMND;
-        private System.Windows.Forms.Label lbSDT;
-        private System.Windows.Forms.Label lbCMND;
-        private System.Windows.Forms.TextBox txtSoDienThoai;
-        private System.Windows.Forms.Label lbHoTen;
-        private System.Windows.Forms.Button btnLuu;
+        private Guna.UI.WinForms.GunaElipse gunaElipse1;
+        private System.Windows.Forms.GroupBox grbHoTenKhachHang;
+        private Guna.UI2.WinForms.Guna2TextBox txtTenKhachHang;
+        private System.Windows.Forms.GroupBox grbSoDienThoai;
+        private Guna.UI2.WinForms.Guna2TextBox txtSoDienThoai;
+        private System.Windows.Forms.GroupBox grbCMND;
+        private Guna.UI2.WinForms.Guna2TextBox txtCMND;
+        private Guna.UI.WinForms.GunaGradientButton btnKhachHang;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
     }
 }

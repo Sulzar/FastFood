@@ -16,5 +16,15 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void grbMa_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbTenNhaCungCap_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

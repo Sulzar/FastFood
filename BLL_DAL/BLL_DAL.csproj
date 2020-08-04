@@ -43,14 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dataQLKhachHang.cs">
-      <DependentUpon>dataQLKhachHang.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="dataQLKhachHang.designer.cs">
+    <Compile Include="BLL_DAL_ChiTietPhieuDatHang.cs" />
+    <Compile Include="BLL_DAL_ChiTietPhieuNhanHang.cs" />
+    <Compile Include="BLL_DAL_NhaCungCap.cs" />
+    <Compile Include="BLL_DAL_PhieuDatHang.cs" />
+    <Compile Include="BLL_DAL_PhieuNhanHang.cs" />
+    <Compile Include="dataFastFood.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dataQLKhachHang.dbml</DependentUpon>
+      <DependentUpon>dataFastFood.dbml</DependentUpon>
     </Compile>
+    <Compile Include="HoaDon_BLL_DLL.cs" />
+    <Compile Include="NguyenLieu_BLL_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -58,12 +62,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="qlKhachHang_BLL_DAL.cs" />
+    <Compile Include="qlNhaCungCap_BLL_DAL.cs" />
+    <Compile Include="QL_SanPham.cs" />
+    <Compile Include="SanPham_BLL_DAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="dataQLKhachHang.dbml">
+    <None Include="dataFastFood.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>dataQLKhachHang.designer.cs</LastGenOutput>
+      <LastGenOutput>dataFastFood.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -75,8 +82,8 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="dataQLKhachHang.dbml.layout">
-      <DependentUpon>dataQLKhachHang.dbml</DependentUpon>
+    <None Include="dataFastFood.dbml.layout">
+      <DependentUpon>dataFastFood.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

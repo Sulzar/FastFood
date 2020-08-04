@@ -37,7 +37,8 @@
     <Reference Include="BLL_DAL">
       <HintPath>..\BLL_DAL\bin\Debug\BLL_DAL.dll</HintPath>
     </Reference>
-    <Reference Include="clb_GUI">
+    <Reference Include="clb_GUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\clb_GUI\bin\Debug\clb_GUI.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI">
@@ -63,12 +64,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmChiTietKhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmChiTietKhachHang.Designer.cs">
-      <DependentUpon>frmChiTietKhachHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,17 +76,11 @@
     <Compile Include="frmKhachHang.Designer.cs">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmKhachHang_1.cs">
+    <Compile Include="frmNguyenLieu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmKhachHang_1.Designer.cs">
-      <DependentUpon>frmKhachHang_1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmKho.Designer.cs">
-      <DependentUpon>frmKho.cs</DependentUpon>
+    <Compile Include="frmNguyenLieu.Designer.cs">
+      <DependentUpon>frmNguyenLieu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -123,6 +112,12 @@
     <Compile Include="frmPhieuDatHang.Designer.cs">
       <DependentUpon>frmPhieuDatHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPhieuNhanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhieuNhanHang.Designer.cs">
+      <DependentUpon>frmPhieuNhanHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPOS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,14 +132,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmChiTietKhachHang.resx">
-      <DependentUpon>frmChiTietKhachHang.cs</DependentUpon>
+    <EmbeddedResource Include="frmHoaDon.resx">
+      <DependentUpon>frmHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmKhachHang.resx">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmKhachHang_1.resx">
-      <DependentUpon>frmKhachHang_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -152,11 +144,23 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNguyenLieu.resx">
+      <DependentUpon>frmNguyenLieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNhaCungCap.resx">
+      <DependentUpon>frmNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPhieuDatHang.resx">
       <DependentUpon>frmPhieuDatHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPhieuNhanHang.resx">
+      <DependentUpon>frmPhieuNhanHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPOS.resx">
       <DependentUpon>frmPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSanPham.resx">
+      <DependentUpon>frmSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -181,6 +185,95 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\icon\arrow_rightpx.png" />
+    <Content Include="img\icon\close_window_30px.png" />
+    <Content Include="img\icon\close_window_80px.png" />
+    <Content Include="img\icon\delete_64px.png" />
+    <Content Include="img\icon\ic_add_user.png" />
+    <Content Include="img\icon\ic_bar_chart.png" />
+    <Content Include="img\icon\ic_bar_chart_1.png" />
+    <Content Include="img\icon\ic_bill.png" />
+    <Content Include="img\icon\ic_cake.png" />
+    <Content Include="img\icon\ic_cake_1.png" />
+    <Content Include="img\icon\ic_card_payment.png" />
+    <Content Include="img\icon\ic_card_payment_1.png" />
+    <Content Include="img\icon\ic_cat_profile.png" />
+    <Content Include="img\icon\ic_cat_profile_1.png" />
+    <Content Include="img\icon\ic_checkmark.png" />
+    <Content Include="img\icon\ic_chef_hat.png" />
+    <Content Include="img\icon\ic_chef_hat_1.png" />
+    <Content Include="img\icon\ic_dinner.png" />
+    <Content Include="img\icon\ic_dinner_1.png" />
+    <Content Include="img\icon\ic_drink.png" />
+    <Content Include="img\icon\ic_drink_1.png" />
+    <Content Include="img\icon\ic_exit.png" />
+    <Content Include="img\icon\ic_exit_1.png" />
+    <Content Include="img\icon\ic_exit_2.png" />
+    <Content Include="img\icon\ic_laptop.png" />
+    <Content Include="img\icon\ic_laptop_1.png" />
+    <Content Include="img\icon\ic_laptop_2.png" />
+    <Content Include="img\icon\ic_laptop_3.png" />
+    <Content Include="img\icon\ic_man.png" />
+    <Content Include="img\icon\ic_manager.png" />
+    <Content Include="img\icon\ic_manager_1.png" />
+    <Content Include="img\icon\ic_manager_3.png" />
+    <Content Include="img\icon\ic_menu.png" />
+    <Content Include="img\icon\ic_menu_1.png" />
+    <Content Include="img\icon\ic_menu_2.png" />
+    <Content Include="img\icon\ic_menu_3.png" />
+    <Content Include="img\icon\ic_menu_4.png" />
+    <Content Include="img\icon\ic_menu_vertical.png" />
+    <Content Include="img\icon\ic_money.png" />
+    <Content Include="img\icon\ic_money_1.png" />
+    <Content Include="img\icon\ic_money_2.png" />
+    <Content Include="img\icon\ic_pay.png" />
+    <Content Include="img\icon\ic_people.png" />
+    <Content Include="img\icon\ic_people_1.png" />
+    <Content Include="img\icon\ic_people_2.png" />
+    <Content Include="img\icon\ic_people_3.png" />
+    <Content Include="img\icon\ic_people_4.png" />
+    <Content Include="img\icon\ic_report.png" />
+    <Content Include="img\icon\ic_report_2.png" />
+    <Content Include="img\icon\ic_search.png" />
+    <Content Include="img\icon\ic_search_1.png" />
+    <Content Include="img\icon\ic_shopping_cart.png" />
+    <Content Include="img\icon\ic_sorting.png" />
+    <Content Include="img\icon\ic_sorting_1.png" />
+    <Content Include="img\icon\ic_sorting_2.png" />
+    <Content Include="img\icon\ic_sorting_3.png" />
+    <Content Include="img\icon\ic_trash_can.png" />
+    <Content Include="img\icon\ic_trash_can_1.png" />
+    <Content Include="img\icon\ic_trash_can_2.png" />
+    <Content Include="img\icon\ic_tv.png" />
+    <Content Include="img\icon\left_64px.png" />
+    <Content Include="img\icon\plus_48px.png" />
+    <Content Include="img\icon\save_64px.png" />
+    <Content Include="img\icon\sorting.png" />
+    <Content Include="img\icon\update_64px.png" />
+    <Content Include="img\icon_loai\ic_bread.png" />
+    <Content Include="img\icon_loai\ic_canned_food.png" />
+    <Content Include="img\icon_loai\ic_chicken.png" />
+    <Content Include="img\icon_loai\ic_fish.png" />
+    <Content Include="img\icon_loai\ic_pork.png" />
+    <Content Include="img\icon_loai\ic_sausage.png" />
+    <Content Include="img\icon_loai\ic_streambun.png" />
+    <Content Include="img\icon_loai\ic_streambun_1.png" />
+    <Content Include="img\img_sanpham\comsuon.jpg" />
+    <Content Include="img\img_sanpham\duigachien.jpg" />
+    <Content Include="img\img_sanpham\duigachienncmam.jpg" />
+    <Content Include="img\img_sanpham\gacay.jpg" />
+    <Content Include="img\img_sanpham\heochienxu.jpg" />
+    <Content Include="img\img_sanpham\heoxaohanh.jpg" />
+    <Content Include="img\img_sanpham\phomai.jpg" />
+    <Content Include="img\img_sanpham\sandwich.jpg" />
+    <Content Include="img\img_sanpham\sotchuangot.jpg" />
+    <Content Include="img\img_sanpham\suonram.jpg" />
+    <Content Include="img\img_sanpham\thitkhotrung.jpg" />
+    <Content Include="img\logo\Picture1.png" />
+    <Content Include="img\logo\Picture2.png" />
+    <Content Include="img\logo\Picture3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

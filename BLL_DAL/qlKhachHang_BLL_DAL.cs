@@ -11,8 +11,8 @@ namespace BLL_DAL
 {
     public class qlKhachHang_BLL_DAL
     {
-        dataQLKhachHangDataContext qlkh = new dataQLKhachHangDataContext();
-
+       
+        dataFastFoodDataContext qlkh = new dataFastFoodDataContext();
        
 
         public IQueryable<QL_KHACHHANG> loadGridViewKhachHang()
@@ -20,7 +20,52 @@ namespace BLL_DAL
             return qlkh.QL_KHACHHANGs.Select(kh => kh);
         }
 
-        public int kiemtrakhoachinh(string sdt)
+        public IQueryable<QL_KHACHHANG> loadGridViewKhachHangTheoTen(string txtTimKiem)
+        {
+            var khachhang = from kh in qlkh.QL_KHACHHANGs
+                            where kh.MaKH.Contains(txtTimKiem) ||
+                            kh.HoTen.Contains(txtTimKiem) ||
+                            kh.SDT.Contains(txtTimKiem) ||
+                            kh.CMND.Contains(txtTimKiem)
+                            select kh;
+            return khachhang;
+
+            //return qlkh.QL_KHACHHANGs.Where(kh => kh.HoTen.Contains(tenkh)).Select(kh => kh);
+        }
+
+        public QL_KHACHHANG loadGridViewTimKiemPOSKhachHang(string txtTimKiem)
+        {
+            var khachhang = (from kh in qlkh.QL_KHACHHANGs
+                            where kh.MaKH.Contains(txtTimKiem) ||
+                            kh.HoTen.Contains(txtTimKiem) ||
+                            kh.SDT.Contains(txtTimKiem) ||
+                            kh.CMND.Contains(txtTimKiem)
+                            select kh).FirstOrDefault();
+            return khachhang;
+
+            //return qlkh.QL_KHACHHANGs.Where(kh => kh.HoTen.Contains(tenkh)).Select(kh => kh);
+        }
+
+        public int demSoLuongKhachHang()
+        {
+            return qlkh.QL_KHACHHANGs.Select(kh => kh).Count();
+        }
+
+        public int kiemtrakhoachinh(string makh)
+        {
+            var khachhang = (from kh in qlkh.QL_KHACHHANGs
+                             where kh.MaKH.Equals(makh)
+                             select kh).FirstOrDefault();
+
+            if (khachhang != null)
+            {
+                return -1;
+            }
+            return 1;
+
+        }
+
+        public int kiemtraSoDienThoaiTonTai(string sdt)
         {
             var khachhang = (from kh in qlkh.QL_KHACHHANGs
                              where kh.SDT.Equals(sdt)
@@ -34,72 +79,62 @@ namespace BLL_DAL
 
         }
 
-        public void themKhachHang(string sodt, string hoten, string cmnd)
+        public void themKhachHang(string makh, string hoten, string sodt, string cmnd)
         {
             QL_KHACHHANG insertkh = new QL_KHACHHANG();
-            insertkh.SDT = sodt;
+            insertkh.MaKH = makh;
             insertkh.HoTen = hoten;
+            insertkh.SDT = sodt;
             insertkh.CMND = cmnd;
+            insertkh.DiemSo = 0;
             qlkh.QL_KHACHHANGs.InsertOnSubmit(insertkh);
             qlkh.SubmitChanges();
         }
-        public void suaKhachHang(string sodt, string hoten, string cmnd, int diem)
+
+        public void suaKhachHang(string makh, string hoten, string sodt, string cmnd, int diem)
         {
-            QL_KHACHHANG updateKhachHang = qlkh.QL_KHACHHANGs.Where(t => t.SDT == sodt).FirstOrDefault();
+            QL_KHACHHANG updateKhachHang = qlkh.QL_KHACHHANGs.Where(t => t.MaKH== makh).FirstOrDefault();
             if(updateKhachHang != null)
             {
-                //updateKhachHang.SDT = sodt;
                 updateKhachHang.HoTen = hoten;
+                updateKhachHang.SDT = sodt;
                 updateKhachHang.CMND = cmnd;
                 updateKhachHang.DiemSo = diem;
                 
             }
             qlkh.SubmitChanges();
-            loadGridViewKhachHang();
+            
+        }
+
+        public void xoaKhachHang(string makh)
+        {
+            QL_KHACHHANG deleteKhachHang = qlkh.QL_KHACHHANGs.Where(t => t.MaKH == makh).FirstOrDefault();
+            if (deleteKhachHang != null)
+            {
+                qlkh.QL_KHACHHANGs.DeleteOnSubmit(deleteKhachHang);
+            }
+            qlkh.SubmitChanges();
 
         }
 
-        public IQueryable<QL_HoaDon_BanHang> loadDonHangTheoKhachHang(string sdt)
-        {
-            
-             var khachhang = (from kh in qlkh.QL_HoaDon_BanHangs
-                             select new QL_HoaDon_BanHang
-                             {
-                                MaHD =  kh.MaHD,
-                                NgayLap =  kh.NgayLap,
-                                PhuongThuc =kh.PhuongThuc
-                             });
 
-            return qlkh.QL_HoaDon_BanHangs.Where(kh => kh.SDT==sdt).Select(kh => kh);
+        public IQueryable<QL_HoaDon_BanHang> loadDonHangTheoKhachHang(string makh)
+        {
+            return qlkh.QL_HoaDon_BanHangs.Where(kh => kh.MAKH==makh).Select(kh => kh);
            
         }
 
-        public IQueryable<QL_HoaDon_BanHang> loadDonHangTheoSDTKhachHang(string sdt)
-        {
-            var khachhang = from kh in qlkh.QL_HoaDon_BanHangs
-                            select kh;
-            //var khachhang = (from kh in qlkh.QL_HoaDon_BanHangs
-            //                 where kh.SDT == sdt
-            //                 select new QL_HoaDon_BanHang
-            //                 {
-            //                     MaHD = kh.MaHD,
-            //                     NgayLap = kh.NgayLap,
-            //                     PhuongThuc = kh.PhuongThuc,
-            //                     TongCong = kh.TongCong
-            //                 });
-            return khachhang;
-        }
 
-        public IQueryable<QL_SanPham> loadSanPham(string sdt)
+        public IQueryable<QL_SanPham> loadSanPham(string makh)
         {
-            var sanpham = from QL_SanPham sp in qlkh.QL_SanPhams
-                          join QL_ChiTietHoaDon hd in qlkh.QL_ChiTietHoaDons 
-                          on sp.MaSP equals hd.MaSP
-                          join hd_kh in qlkh.QL_HoaDon_BanHangs
-                          on hd.MaSP equals hd_kh.MaHD
-                          where hd_kh.SDT == sdt
-                          select sp;
+            var sanpham = (from sp in qlkh.QL_SanPhams
+                          join ct_hd in qlkh.QL_ChiTietHoaDons on sp.MaSP equals ct_hd.MaSP
+                          join hd_kh in qlkh.QL_HoaDon_BanHangs on ct_hd.MaHD equals hd_kh.MaHD
+                          where hd_kh.MAKH == makh
+                          select sp).Distinct();
             return sanpham;
+
+
         }
        
 

@@ -9,73 +9,97 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL_DAL;
 
-
 namespace clb_GUI
 {
     public partial class usThemKhachHang : UserControl
     {
         qlKhachHang_BLL_DAL qlkh = new qlKhachHang_BLL_DAL();
-       
+        List<string> lstStringTextBox;
+        public int tag = 0;
+        public string ma;
         public usThemKhachHang()
         {
             InitializeComponent();
-            txtCMND.Text = "";
-            txtHoTen.Text = "";
-            txtSoDienThoai.Text = "";
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
 
         }
-
-        private void btnLuu_Click(object sender, EventArgs e)
+        public List<string> addList()
         {
-            try
+            lstStringTextBox = new List<string>();
+            lstStringTextBox.Add(txtTenKhachHang.Text);
+            lstStringTextBox.Add(txtSoDienThoai.Text);
+            lstStringTextBox.Add(txtCMND.Text);
+            return lstStringTextBox;
+        }
+
+        public bool isEmpty(List<string> lst)
+        {
+            int count = 0;
+            foreach (string s in lst)
             {
-                if (string.IsNullOrEmpty(txtHoTen.Text))
+                if (s.Length == 0)
                 {
-                    MessageBox.Show(lbHoTen.Text + " không được bỏ trống");
+                    count++;
                 }
-                else if (string.IsNullOrEmpty(txtCMND.Text))
-                {
-                    MessageBox.Show(lbCMND.Text + " không được bỏ trống");
-                }
-                else if (string.IsNullOrEmpty(txtSoDienThoai.Text))
-                {
-                    MessageBox.Show(lbSDT.Text + " không được bỏ trống");
-                }
-                else if(txtCMND.Text.Length != 9)
-                {
-                    MessageBox.Show(lbCMND.Text + " không hợp lệ");
-                }
-                else if(txtSoDienThoai.Text.Length != 10)
-                {
-                    MessageBox.Show(lbSDT.Text + " không hợp lệ");
-                }
-                else if (qlkh.kiemtrakhoachinh(txtSoDienThoai.Text)==1)
-                {
-                  
-                    qlkh.themKhachHang(txtSoDienThoai.Text, txtHoTen.Text, txtCMND.Text);
-                    MessageBox.Show("Thêm thành công");
-                    MessageBox.Show("Vui lòng làm mới lại ");
-                    this.Visible = false;
-                    txtCMND.Text = "";
-                    txtHoTen.Text = "";
-                    txtSoDienThoai.Text = "";
-                }
-                else
-                {
-                    MessageBox.Show(qlkh.kiemtrakhoachinh(txtSoDienThoai.Text) + "");
-                    MessageBox.Show("Số điện thoại: " + txtSoDienThoai.Text + " đã được đăng kí");
-                    txtSoDienThoai.Clear();
-                }    
+            }
+            return count != 0;
+        }
+        private void btnKhachHang_Click(object sender, EventArgs e)
+        {
+
+            if (isEmpty(addList()))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+            }
+            else if (txtSoDienThoai.Text.Length != 10)
+            {
+                MessageBox.Show("Số điện thoại bạn nhập không hợp lệ");
+                return;
+            }
+            else if (txtCMND.Text.Length != 10)
+            {
+                MessageBox.Show("CMND bạn nhập không hợp lệ");
+                return;
 
             }
-            catch
+            else
             {
-                MessageBox.Show("Lỗi do hệ thống!");
+                if (qlkh.kiemtraSoDienThoaiTonTai(txtSoDienThoai.Text) == 1)
+                {
+                    try
+                    {
+                        DialogResult result;
+
+                        result = MessageBox.Show("Bạn muốn lưu khách hàng " + txtTenKhachHang.Text + " ?",
+                            "Thông báo", MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                        if (result == DialogResult.Yes)
+                        {
+                            int soluongKH = qlkh.demSoLuongKhachHang() + 1;
+                            qlkh.themKhachHang("KH00" + soluongKH, txtTenKhachHang.Text, txtSoDienThoai.Text, txtCMND.Text);
+                            MessageBox.Show("Lưu thông tin khách hàng " + txtTenKhachHang.Text + "thành công");
+                            tag = 1;
+                            ma = soluongKH.ToString();
+                            txtCMND.Clear();
+                            txtTenKhachHang.Clear();
+                            txtSoDienThoai.Clear();
+                        }
+                        else
+                        {
+                            return;
+                        }
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Lỗi hệ thống!");
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Số điện thoại này đã được đăng ký");
+                }
+
             }
         }
     }

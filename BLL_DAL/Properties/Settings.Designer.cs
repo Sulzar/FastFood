@@ -44,5 +44,16 @@ namespace BLL_DAL.Properties {
                 return ((string)(this["DAMN_CuaHangThucAnNhanhConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-AN0VONI\\SQLEXPRESS;Initial Catalog=DAMN_QuanLyCaPhe;User ID=s" +
+            "a;Password=sa2012")]
+        public string DAMN_QuanLyCaPheConnectionString {
+            get {
+                return ((string)(this["DAMN_QuanLyCaPheConnectionString"]));
+            }
+        }
     }
 }
