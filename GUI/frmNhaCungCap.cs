@@ -120,6 +120,8 @@ namespace GUI
 
         private void dataGridViewNhaCungCap_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
             if(dataGridViewNhaCungCap.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
                 dataGridViewNhaCungCap.CurrentRow.Selected = true;
@@ -220,7 +222,7 @@ namespace GUI
                     if (txtSoDienThoai.Text.Length != 10)
                     {
                         MessageBox.Show("Số điện thoại bạn nhập không hợp lệ");
-                        
+                        return;
                     }
                     else if (!isEmail(txtEmail.Text))
                     {

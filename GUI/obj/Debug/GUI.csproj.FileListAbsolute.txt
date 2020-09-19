@@ -49,3 +49,114 @@ E:\Project\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
 E:\Project\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmHoaDon.resources
 E:\Project\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmNguyenLieu.resources
 E:\Project\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhieuNhanHang.resources
+E:\Project\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.Form1.resources
+E:\Project\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhanNhomNguoiDung.resources
+E:\Project\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.Form2.resources
+D:\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\GUI.exe.config
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.Form1.resources
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.Form2.resources
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmHoaDon.resources
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmKhachHang.resources
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmLogin.resources
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmMain.resources
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmNguyenLieu.resources
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmNhaCungCap.resources
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhanNhomNguoiDung.resources
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhieuDatHang.resources
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhieuNhanHang.resources
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPOS.resources
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmSanPham.resources
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.Properties.Resources.resources
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
+D:\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\GUI.exe
+D:\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\GUI.pdb
+D:\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\BLL_DAL.dll
+D:\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\clb_GUI.dll
+D:\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\Guna.UI.dll
+D:\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\Guna.UI2.dll
+D:\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\BLL_DAL.pdb
+D:\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\clb_GUI.pdb
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.exe
+D:\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.pdb
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\GUI.exe.config
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.exe
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.pdb
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\GUI.exe
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\GUI.pdb
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\BLL_DAL.dll
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\clb_GUI.dll
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\Guna.UI.dll
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\Guna.UI2.dll
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\BLL_DAL.pdb
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\bin\Debug\clb_GUI.pdb
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.Form1.resources
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmHoaDon.resources
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmKhachHang.resources
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmLogin.resources
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmMain.resources
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmNguyenLieu.resources
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmNhaCungCap.resources
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhanNhomNguoiDung.resources
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhieuDatHang.resources
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhieuNhanHang.resources
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPOS.resources
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmSanPham.resources
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.Properties.Resources.resources
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
+E:\New folder (5)\Nhan\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhanQuyen.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\bin\Debug\GUI.exe.config
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.exe
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.pdb
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\bin\Debug\GUI.exe
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\bin\Debug\GUI.pdb
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\bin\Debug\BLL_DAL.dll
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\bin\Debug\clb_GUI.dll
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\bin\Debug\Guna.UI.dll
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\bin\Debug\Guna.UI2.dll
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\bin\Debug\BLL_DAL.pdb
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\bin\Debug\clb_GUI.pdb
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.Form1.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmHoaDon.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmKhachHang.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmLogin.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmMain.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmNguyenLieu.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmNhaCungCap.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhanNhomNguoiDung.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhanQuyen.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhieuDatHang.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhieuNhanHang.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPOS.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmSanPham.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.Properties.Resources.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_KD\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\bin\Debug\GUI.exe.config
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.exe
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.pdb
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\bin\Debug\GUI.exe
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\bin\Debug\GUI.pdb
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\bin\Debug\BLL_DAL.dll
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\bin\Debug\clb_GUI.dll
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\bin\Debug\Guna.UI.dll
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\bin\Debug\Guna.UI2.dll
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\bin\Debug\BLL_DAL.pdb
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\bin\Debug\clb_GUI.pdb
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.Form1.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmHoaDon.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmKhachHang.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmLogin.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmMain.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmNguyenLieu.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmNhaCungCap.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhanNhomNguoiDung.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhanQuyen.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhieuDatHang.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPhieuNhanHang.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmPOS.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.frmSanPham.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.Properties.Resources.resources
+D:\MinhTriet\__HK2_2020\DoAn_CNPM_QuanLyQuanCafe\CuaHangThucAnNhanh\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache

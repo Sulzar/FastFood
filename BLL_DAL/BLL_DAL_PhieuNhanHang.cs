@@ -14,6 +14,25 @@ namespace BLL_DAL
             //empty
         }
 
+        // Kiểm tra mã phiếu
+        public bool kT(string ma)
+        {
+            if (ff.QL_PhieuNhans.Where(t => t.MaPhieuNhan == ma).Count() != 0)
+            {
+                return false;
+            }
+            else
+                return true;
+        }
+
+        // cập nhật tổng tiền
+        public void capNhatTong(string maPhieuNhan,int tong)
+        {
+            QL_PhieuNhan p = ff.QL_PhieuNhans.Where(t => t.MaPhieuNhan == maPhieuNhan).SingleOrDefault();
+            p.TongTien = tong;
+            ff.SubmitChanges();
+        }
+
         // load phiếu nhận hàng
         public IQueryable load_PhieuNhan()
         {

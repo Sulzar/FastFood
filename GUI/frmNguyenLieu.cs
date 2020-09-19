@@ -29,7 +29,52 @@ namespace GUI
         }
 
         // >>>>>>>>>> HÀM <<<<<<<<<<
+        // Hàm kiểm tra text box
+        Boolean kiemTraNull()
+        {
+            if (txt_MaNguyenLieu.Text != "")
+            {
+                if (txt_TenNguyenLieu.Text != "")
+                {
+                    if (txt_DonVi.Text != "")
+                    {
+                        if (txt_SoLuong.Text != "")
+                        {
+                            if (cbo_TenLoai.Text != "")
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không được để trống Loại nguyên liệu");
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không được để trống số lượng");
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không được để trống đơn vị");
+                        return false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không được để trống tên nguyên liệu");
+                    return false;
+                }
 
+            }
+            else
+            {
+                MessageBox.Show("Không được để trống mã nguyên liệu");
+                return false;
+            }
+        }
         // hàm load cbo MaLoai
         void load_cbo_Loai()
         {
@@ -40,13 +85,10 @@ namespace GUI
         // chọn đưa control textbox về null
         void textboxVeNull()
         {
-            foreach (Control cn in this.panel1.Controls)
-            {
-                if (cn.GetType() == typeof(TextBox))
-                {
-                    cn.Text = "";
-                }
-            }
+            txt_TenNguyenLieu.Text = "";
+            txt_DonVi.Text = "";
+            txt_SoLuong.Text = "";
+            cbo_TenLoai.SelectedIndex = -1;
         }
         // load grid
         void load_AllGrid()
@@ -55,7 +97,6 @@ namespace GUI
             dgrv_HienThiNguyenLieu.DataSource = nl.loadNguyenLieuFormKho();
 
         }
-
 
         // >>>>>>>>>> KẾT THÚC HÀM <<<<<<<<<<
         private void btnThem_Click(object sender, EventArgs e)
@@ -72,8 +113,6 @@ namespace GUI
 
         private void frmKho_Load(object sender, EventArgs e)
         {
-          
-
             //string[] arr = { "Hàng Còn Trong Kho", "Hàng Sắp Hết Hạn", "Hàng Mới Nhập", "Hàng Sắp Hết", "Hàng Đã Hết" };
             //if (cbo_TenLoai.Items.Count > 0)
             //{
@@ -112,25 +151,27 @@ namespace GUI
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            //nl.suaNguyenLieu(txt_MaNguyenLieu.Text.Trim(), txt_TenNguyenLieu.Text, txt_DonVi.Text, Convert.ToInt32(txt_SoLuong.Text), txt_HSD.Value, cbo_TenLoai.SelectedValue.ToString());
-            //load_AllGrid();
+            txt_TenNguyenLieu.Focus();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if(nl.kiemtrakhoachinh(txt_MaNguyenLieu.Text) == 1)
+            if (kiemTraNull() == true)
             {
-                nl.themNguyenLieu(txt_MaNguyenLieu.Text, txt_TenNguyenLieu.Text, txt_DonVi.Text, Convert.ToInt32(txt_SoLuong.Text), txt_HSD.Value, cbo_TenLoai.SelectedValue.ToString());
-                load_AllGrid();
-                textboxVeNull();
-                MessageBox.Show("Lưu thành công");
-            }
-            else
-            {
-                nl.suaNguyenLieu(txt_MaNguyenLieu.Text.Trim(), txt_TenNguyenLieu.Text, txt_DonVi.Text, Convert.ToInt32(txt_SoLuong.Text), txt_HSD.Value, cbo_TenLoai.SelectedValue.ToString());
-                load_AllGrid();
-                textboxVeNull();
-                MessageBox.Show("Lưu thành công");
+                if (nl.kiemtrakhoachinh(txt_MaNguyenLieu.Text) == 1)
+                {
+                    nl.themNguyenLieu(txt_MaNguyenLieu.Text, txt_TenNguyenLieu.Text, txt_DonVi.Text, Convert.ToInt32(txt_SoLuong.Text), txt_HSD.Value, cbo_TenLoai.SelectedValue.ToString());
+                    load_AllGrid();
+                    textboxVeNull();
+                    MessageBox.Show("Lưu thành công");
+                }
+                else
+                {
+                    nl.suaNguyenLieu(txt_MaNguyenLieu.Text.Trim(), txt_TenNguyenLieu.Text, txt_DonVi.Text, Convert.ToInt32(txt_SoLuong.Text), txt_HSD.Value, cbo_TenLoai.SelectedValue.ToString());
+                    load_AllGrid();
+                    textboxVeNull();
+                    MessageBox.Show("Lưu thành công");
+                }
             }
         }
 
@@ -151,7 +192,6 @@ namespace GUI
             {
                 string now = DateTime.Now.ToShortDateString();
                 dgrv_HienThiNguyenLieu.DataSource = nl.loadGridViewTheoHangHetDate(Convert.ToDateTime(now));
-              
             }
             else
             {

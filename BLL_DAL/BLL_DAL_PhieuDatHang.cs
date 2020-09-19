@@ -16,10 +16,21 @@ namespace BLL_DAL
             //empty
         }
 
+        // Kiểm tra mã phiếu
+        public bool kT(string ma)
+        {
+            if (ff.QL_HoaDon_NhapHangs.Where(t => t.MaHDNH == ma).Count() != 0)
+            {
+                return false;
+            }
+            else
+                return true;
+        }
+
         // load tất cả phiếu đặt hàng
         public IQueryable loadPhieuDatHang()
         {
-            return ff.QL_HoaDon_NhapHangs.Select(t => new { t.MaHDNH, t.MANCC, t.NgayNhap, t.TongTien, t.MAND, t.PhuongThuc, t.TinhTrang });
+            return ff.QL_HoaDon_NhapHangs.Select(t => new { t.MaHDNH, t.MANCC, t.NgayNhap,t.TongTien, t.MAND, t.PhuongThuc, t.TinhTrang });
         }
 
         // Tạo mã hóa đơn
@@ -60,6 +71,14 @@ namespace BLL_DAL
             nh.MAND = maND;
             nh.PhuongThuc = phuongThuc;
             nh.TinhTrang = tinhTrang;
+            ff.SubmitChanges();
+        }
+
+        // Cập nhật tổng tiền cho phiếu đặt hàng
+        public void capNhatTongTien(string maPDH,int tong)
+        {
+            QL_HoaDon_NhapHang nh = ff.QL_HoaDon_NhapHangs.Where(t => t.MaHDNH == maPDH).FirstOrDefault();
+            nh.TongTien = tong;
             ff.SubmitChanges();
         }
 

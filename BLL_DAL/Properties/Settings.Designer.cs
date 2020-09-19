@@ -12,7 +12,7 @@ namespace BLL_DAL.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,8 +26,8 @@ namespace BLL_DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-AN0VONI\\SQLEXPRESS;Initial Catalog=DAMN_CuaHangThucAnNhanh;Us" +
-            "er ID=sa;Password =sa2012")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-87LUJO1\\SQLEXPRESS;Initial Catalog=DAMN_QuanLyCaPhe;Integrate" +
+            "d Security=True")]
         public string DAMN_CuaHangThucAnNhanhConnectionString {
             get {
                 return ((string)(this["DAMN_CuaHangThucAnNhanhConnectionString"]));
@@ -37,8 +37,9 @@ namespace BLL_DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-AN0VONI\\SQLEXPRESS;Initial Catalog=DAMN_CuaHangThucAnNhanh;Us" +
-            "er ID=sa;Password=sa2012")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-87LUJO1\\SQLEXPRESS;Initial Catalog=DAMN_QuanLyCaPhe;Integrate" +
+            "d Data Source=DESKTOP-87LUJO1\\SQLEXPRESS;Initial Catalog=DAMN_QuanLyCaPhe;Integr" +
+            "ated Security=True")]
         public string DAMN_CuaHangThucAnNhanhConnectionString1 {
             get {
                 return ((string)(this["DAMN_CuaHangThucAnNhanhConnectionString1"]));
@@ -48,11 +49,22 @@ namespace BLL_DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-AN0VONI\\SQLEXPRESS;Initial Catalog=DAMN_QuanLyCaPhe;User ID=s" +
-            "a;Password=sa2012")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-87LUJO1\\SQLEXPRESS;Initial Catalog=DAMN_QuanLyCaPhe;Integrate" +
+            "d Security=True")]
         public string DAMN_QuanLyCaPheConnectionString {
             get {
                 return ((string)(this["DAMN_QuanLyCaPheConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-QFQ8VVD\\SQLEXPRESS;Initial Catalog=DAMN_QuanLyCaPhe;Integrate" +
+            "d Security=True")]
+        public string DAMN_QuanLyCaPheConnectionString1 {
+            get {
+                return ((string)(this["DAMN_QuanLyCaPheConnectionString1"]));
             }
         }
     }

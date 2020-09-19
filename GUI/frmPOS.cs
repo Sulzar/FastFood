@@ -19,6 +19,7 @@ namespace GUI
         HoaDon_BLL_DLL hd_bll = new HoaDon_BLL_DLL();
         bool checkTienMat;
         int tongtienHd;
+        QL_NguoiDung nd;        
         QL_KHACHHANG kh_hientai;
 
         #endregion
@@ -67,18 +68,18 @@ namespace GUI
                 btn.Visible = false;
                 pn_line.Visible = false;
             }
-        }
-
-       
+        }       
 
         private void btnBackToManager_Click(object sender, EventArgs e)
         {
             frmMain frm = new frmMain();
+            frm.DangNhapNguoiDung(nd);
             frm.WindowState = FormWindowState.Maximized;
             frm.Show();
             this.Close();
         }
 
+        #region Method
 
 
         //Hien thi loai nguyen lieu
@@ -148,7 +149,7 @@ namespace GUI
 
                 //itemsp.btnchon.Visible = false;
                 itemsp.pnLine.Visible = false;
-               
+
                 if (item.Hinh == null || item.Hinh == string.Empty)
                 {
                     path = "../../img/img_sanpham/" + "sandwich.jpg";
@@ -215,10 +216,33 @@ namespace GUI
             {
                 tong += item.TongTien;
             }
-            lbTongTien.Text = tong.ToString();
+            lbTongTien.Text = tong + " ";
+            lbThanhTien.Text = tong + " ";
 
-            int thanhtien = int.Parse(lbTongTien.Text) - int.Parse(lbGiamGia.Text);
-            lbThanhTien.Text = thanhtien.ToString();
+            if(kh_hientai == null)
+            {
+                return;
+            }
+            if (checkDungDiem.Checked == true)
+            {
+                if (kh_hientai.DiemSo >= tong)
+                {
+                    tong = 0;
+                    lbDiem.Text = (( kh_hientai.DiemSo * 1000 ) - tong).ToString();
+                }
+                else
+                {
+                    tong = tong - ((int)kh_hientai.DiemSo * 1000);
+                    lbDiem.Text = "0";
+                }
+            }
+            else
+            {
+                lbDiem.Text = kh_hientai.DiemSo.ToString();
+            }
+
+
+            lbThanhTien.Text = tong + " ";
 
         }
 
@@ -249,6 +273,9 @@ namespace GUI
                 {
                     usChiTietHD usChiTiet = (usChiTietHD)item;
                     usChiTiet.capnhapTongTien((int)nb.Value);
+                    // Cap nhap so luong don hang
+
+                    capnhapSLCT(nb.Tag.ToString(), (int)nb.Value);  
                 }
                 else
                 {
@@ -256,6 +283,19 @@ namespace GUI
                 }
             }
             capnhapTongTien();
+        }
+
+        // cap nhap so luong cho chi tiet
+        private void capnhapSLCT(string p1, int p2)
+        {
+            foreach (QL_ChiTietHoaDon item in lstChiTiet)
+            {
+                if (item.MaSP == p1)
+                {
+                    item.Soluong = p2;
+                    break;
+                }
+            }
         }
 
         private bool checkHD(string maSP)
@@ -274,6 +314,7 @@ namespace GUI
             }
             return true;
         }
+
         public string taoMaHD()
         {
             string date = DateTime.Now.Date.ToShortDateString();
@@ -327,6 +368,7 @@ namespace GUI
                 lstChiTiet = null;
             }
         }
+
         public bool checkTienDua()
         {
             if (txtTienDua.Text == string.Empty)
@@ -361,12 +403,25 @@ namespace GUI
                 string phuongthuc = checkTienMat ? "Tiền Mặt" : "Thẻ";
                 int tongtien = Convert.ToInt32(lbTongTien.Text);
                 //double TongTien = ckDiem.Checked ? tongtien : tongtien;
-                int soLuong = 0;
-
-               
                 
+                string khach;
 
-                bool check = hd_bll.themHoaDon(lstChiTiet, "ND01", "KH01", phuongthuc, txtTienDua.Text, lbTienDu.Text, Convert.ToInt32(tongtien), soLuong);
+                if(txtKhachHang.Text.Length == 0)
+                {
+                    // khach hang chua dang ky
+                    khach = "KH0001";
+                }
+                else
+                {
+                    khach = kh_hientai.MaKH;
+                }
+
+                if(checkDungDiem.Checked)
+                {
+                    kh_hientai.DiemSo = Convert.ToInt32(lbDiem.Text);
+                }
+
+                bool check = hd_bll.themHoaDon(lstChiTiet, nd.MaND, khach, phuongthuc, txtTienDua.Text, lbTienDu.Text, Convert.ToInt32(tongtien));
 
                 if (check)
                 {
@@ -404,7 +459,7 @@ namespace GUI
                 }
 
                 int val = Convert.ToInt32(txtTienDua.Text);
-                updateTienThua_TienThieu(val, Convert.ToInt32(lbTongTien.Text));
+                updateTienThua_TienThieu(val, Convert.ToInt32(lbThanhTien.Text));
             }
             catch
             {
@@ -444,6 +499,7 @@ namespace GUI
             btnTienMat.BaseColor = Color.White;
             btnTienMat.ForeColor = Color.Gray;
         }
+
         private void btnTienMat_Click(object sender, EventArgs e)
         {
             lbTienKhachDua.Visible = true;
@@ -460,10 +516,7 @@ namespace GUI
 
         private void txtSearchSP_TextChanged(object sender, EventArgs e)
         {
-            List<QL_SanPham> lstSP = sp_bll.searchSP(pnHienThiSanPham.Text);
-
-
-            hienthiSanPham(lstSP);
+          
         }
 
         private void btnSeachKH_Click(object sender, EventArgs e)
@@ -516,22 +569,73 @@ namespace GUI
                 MinimizeBox = false,
                 ClientSize = us.Size //size the form to fit the content
             };
-            
+
             window.Controls.Add(us);
             us.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             window.StartPosition = FormStartPosition.CenterScreen;
-           
-            if(us.tag == 0)
+
+            if (us.tag == 0)
             {
                 window.ShowDialog();
             }
             else
             {
-                
+
                 window.Close();
                 txtKhachHang.Text = us.ma;
             }
-           
+
         }
+        #endregion
+
+        private void btnTatCa_Click_1(object sender, EventArgs e)
+        {
+            List<QL_SanPham> lst = sp_bll.getALLSP();
+            hienthiSanPham(lst);
+        }
+
+        private void btnThucAn_Click_1(object sender, EventArgs e)
+        {
+            List<QL_SanPham> lst = sp_bll.getALLByLoaiList("LOAISP01");
+            hienthiSanPham(lst);
+        }
+
+        private void btnThucUong_Click(object sender, EventArgs e)
+        {
+            List<QL_SanPham> lst = sp_bll.getALLByLoaiList("LOAISP02");
+            hienthiSanPham(lst);
+        }
+
+        private void btnSeachKH_Click_1(object sender, EventArgs e)
+        {
+            List<QL_SanPham> lstSP = sp_bll.searchSP(pnHienThiSanPham.Text);
+
+
+            hienthiSanPham(lstSP);
+        }
+
+
+
+        internal void DangNhapNguoiDung(QL_NguoiDung nd)
+        {
+            this.nd = nd;
+            thietLapND();
+        }
+        public void thietLapND()
+        {
+            BtnND.Text = nd.TenNguoiDung;
+        }
+
+        private void checkDungDiem_CheckedChanged(object sender, EventArgs e)
+        {
+            capnhapTongTien();           
+        }
+
+        private void capnhapdiem()
+        {
+            
+            
+        }
+
     }
 }

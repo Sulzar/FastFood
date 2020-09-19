@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BLL_DAL;
 namespace GUI
 {
     public partial class frmMain : Form
@@ -19,14 +19,36 @@ namespace GUI
             btnSoQui, btnChi, btnThu, btnTongQuan,
             btnLoiNhuan, btnHangHoa, btnDoanhSo,
             btnNguyenLieu,btnDatHang,btnNhapKho;
+        List<Control> lstControl;
+        Login_BLL_DAL login = new Login_BLL_DAL();
 
-      
+        QL_NguoiDung nd;
 
         public frmMain()
         {
             InitializeComponent();
-            btnFullMenu.Visible = false; 
+            btnFullMenu.Visible = false;
+     
         }
+
+        internal void DangNhapNguoiDung(BLL_DAL.QL_NguoiDung nd)
+        {
+            this.nd = nd;
+        }
+
+
+        private void thietlapThongTin()
+        {
+            lbTenDN.Text = nd.TenNguoiDung;
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Show();
+            this.Close();
+        }
+
 
         private void btnCollapseMenu_Click(object sender, EventArgs e)
         {
@@ -116,6 +138,7 @@ namespace GUI
         {
             frmPOS frm = new frmPOS(true);
             frm.WindowState = FormWindowState.Maximized;
+            frm.DangNhapNguoiDung(nd);
             frm.Show();
             this.Visible = false;
         }
@@ -129,19 +152,32 @@ namespace GUI
 
             btnNhanVien = addButton("Nhân viên");
             btnNhanVien.Click += BtnNhanVien_Click;
-
               
 
             btnSanPham = addButton("Sản phẩm");
             btnSanPham.Click += BtnSanPham_Click;
 
+
+            btnPhanQuyen = addButton("Phân Quyền");
+            btnPhanQuyen.Click += btnPhanQuyen_Click;
+
+            pnTabHoz.Controls.Add(btnPhanQuyen);
             pnTabHoz.Controls.Add(btnHoaDon);
             pnTabHoz.Controls.Add(btnNhanVien);
             pnTabHoz.Controls.Add(btnSanPham);
-
+            
 
             BtnSanPham_Click(sender, e);
 
+        }
+
+        void btnPhanQuyen_Click(object sender, EventArgs e)
+        {
+            addFormInPanel(new frmPhanQuyen());
+            btnHoaDon.LineColor = Color.FromArgb(227, 227, 227);
+            btnNhanVien.LineColor = Color.FromArgb(227, 227, 227);
+            btnSanPham.LineColor = Color.FromArgb(227, 227, 227);
+            btnPhanQuyen.LineColor = Color.Tomato; 
         }
 
         private void btnKhachHang_Click(object sender, EventArgs e)
@@ -249,7 +285,7 @@ namespace GUI
 
         private void BtnNhanVien_Click(object sender, EventArgs e)
         {
-            addFormInPanel(new frmNhanVien());
+            addFormInPanel(new frmPhanNhomNguoiDung());
             btnHoaDon.LineColor = Color.FromArgb(227, 227, 227);
             btnNhanVien.LineColor = Color.Tomato;
             btnSanPham.LineColor = Color.FromArgb(227, 227, 227);
@@ -269,6 +305,7 @@ namespace GUI
             btnHoaDon.LineColor = Color.FromArgb(227, 227, 227);
             btnNhanVien.LineColor = Color.FromArgb(227, 227, 227);
             btnSanPham.LineColor = Color.Tomato;
+            btnPhanQuyen.LineColor = Color.FromArgb(227, 227, 227);
         }
 
         private void BtnNhaCungCap_Click(object sender, EventArgs e)
@@ -311,12 +348,12 @@ namespace GUI
 
         private void BtnHangHoa_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void BtnLoiNhuan_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void BtnNhapKho_Click(object sender, EventArgs e)
@@ -344,5 +381,35 @@ namespace GUI
             btnNhapKho.LineColor = Color.FromArgb(227, 227, 227);
         }
 
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            thietlapThongTin();
+            thietlapPhanQuyen();
+
+        }
+
+        private void thietlapPhanQuyen()
+        {
+            if (nd == null)
+                return;
+            List<QL_PhanQuyen> lstPQ = login.lstPQ(nd.MaNhom);
+            foreach (GunaGradientButton item in pnControlPQ.Controls)
+            {
+                if (lstPQ.SingleOrDefault(t => t.MaMH == item.Tag.ToString()).CoQuyen == false)
+                {
+                    item.Enabled = false;
+                }
+                else
+                {
+                    item.Enabled = true;
+                }
+            }
+        }
+
+
+
+
+
+        public GunaAdvenceButton btnPhanQuyen { get; set; }
     }
 }

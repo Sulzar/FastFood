@@ -22,6 +22,7 @@ namespace GUI
         string tenNLDangChon;
         string maPhieuDangChon;
         string maND = "ND01";
+        double tong = 0;
 
         public frmPhieuDatHang()
         {
@@ -29,6 +30,71 @@ namespace GUI
         }
 
         //>>>>>>>>>> HÀM <<<<<<<<<<
+
+
+        // Kiểm tra các text box null
+        Boolean kiemTra()
+        {
+            if (txt_maPhieu.Text != "")
+            {
+                if(txt_NgayNhap.Text != "")
+                {
+                    if (txt_TongTien.Text !="")
+                    {
+                        if(cbo_PhuongThuc.Text != "")
+                        {
+                            if(txt_NhanVienDat.Text != "")
+                            {
+                                if(cbo_TinhTrang.Text != "")
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Không được để trống Tình Trạng");
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không được để trống Nhân viên đặt");
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không được để trống Phương Thức");
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không được để trống Tổng tiền");
+                        return false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không được để trống Ngày Nhập");
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không được để trống Mã Phiếu");
+                return false;
+            }
+        }
+        // Hàm tính tổng 
+        void tinhTong()
+        {
+            tong = 0;
+            for (int i = 0; i <= dataGridViewChiTiet.Rows.Count - 1; i++)
+            {
+                tong = Convert.ToDouble(dataGridViewChiTiet.Rows[i].Cells[3].Value.ToString().Trim()) * Convert.ToDouble(dataGridViewChiTiet.Rows[i].Cells[4].Value.ToString().Trim()) + tong;
+            }
+            txt_TongTien.Text = tong.ToString();
+        }
 
         // Kiểm tra các textbox vs combobox
         private bool kiemTraNhapChiTiet()
@@ -90,20 +156,23 @@ namespace GUI
             // dgv Phieu Dat Hang
             dataGridViewPhieuDatHang.DataSource = dh.loadPhieuDatHang();
 
-            // dgv Chi Tiet Phieu Dat Hang
-            dataGridViewChiTiet.DataSource = ct.load_ChiTietPhieuDatHang();
+            //// dgv Chi Tiet Phieu Dat Hang
+            //dataGridViewChiTiet.DataSource = ct.load_ChiTietPhieuDatHang();
         }
 
         //>>>>>>>>>> KẾT THÚC HÀM <<<<<<<<<<
 
         private void btnThemNguyenLieuVaoChiTiet_Click(object sender, EventArgs e)
         {
-            if (ct.ktTrung(maNLDangChon) == true)
+            if (ct.ktTrung(maPhieuDangChon,maNLDangChon) == true)
             {
                 if (kiemTraNhapChiTiet() == true)
                 {
                     ct.themChiTietPhieuNhap(maPhieuDangChon, maNLDangChon, txt_DonViTinh.Text, Convert.ToInt32(txt_SoLuong.Text), Convert.ToInt32(txt_DonGia.Text));
                     dataGridViewChiTiet.DataSource = ct.load_chiTietPhieuDatHangTheoMa(maPhieuDangChon);
+                    tinhTong();
+                    dh.capNhatTongTien(maPhieuDangChon, (int)tong);
+                    load_DataGridView();
                     MessageBox.Show("Thêm thành công");
                 }
             }
@@ -113,11 +182,22 @@ namespace GUI
 
         private void btnThemPhieuDatHang_Click(object sender, EventArgs e)
         {
-            btnLuuPhieuDatHang.Enabled = true;
-            dh.themPhieuDatHang(txt_maPhieu.Text, cbo_NhaCungCap.SelectedValue.ToString(), Convert.ToDateTime(txt_NgayNhap.Text), Convert.ToInt32(txt_TongTien.Text), txt_NhanVienDat.Text, cbo_PhuongThuc.Text, cbo_TinhTrang.Text);
-            MessageBox.Show("Thêm thành công");
-            load_DataGridView();
-            btnThemPhieuDatHang.Enabled = false;
+            if (kiemTra() == true)
+            {
+                if (dh.kT(txt_maPhieu.Text) == true)
+                {
+                    btnLuuPhieuDatHang.Enabled = true;
+                    dh.themPhieuDatHang(txt_maPhieu.Text, cbo_NhaCungCap.SelectedValue.ToString(), txt_NgayNhap.Value, Convert.ToInt32(txt_TongTien.Text), txt_NhanVienDat.Text, cbo_PhuongThuc.Text, cbo_TinhTrang.Text);
+                    MessageBox.Show("Thêm thành công");
+                    load_DataGridView();
+                    btnThemPhieuDatHang.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Mã phiếu đặt hàng bị trùng");
+                    txt_maPhieu.Focus();
+                }
+            }  
         }
 
         private void btnXoaDongChiTietPDH_Click(object sender, EventArgs e)
@@ -126,6 +206,9 @@ namespace GUI
             {
                 int vt = dataGridViewChiTiet.SelectedCells[0].RowIndex;
                 ct.xoaChiTietPhieuDatHang(dataGridViewChiTiet.Rows[vt].Cells[0].Value.ToString(), dataGridViewChiTiet.Rows[vt].Cells[1].Value.ToString());
+                dataGridViewChiTiet.DataSource = ct.load_chiTietPhieuDatHangTheoMa(maPhieuDangChon);
+                tinhTong();
+                dh.capNhatTongTien(maPhieuDangChon, (int)tong);
                 MessageBox.Show("Xóa thành công");
                 load_DataGridView();
             }
@@ -161,9 +244,10 @@ namespace GUI
 
         private void btnLamMoiPhieuDat_Click(object sender, EventArgs e)
         {
+            btnSuaPhieuDatHang.Enabled = false;
             btnThemPhieuDatHang.Enabled = true;
             txt_TongTien.Text = "0";
-            txt_NgayNhap.Text = DateTime.Now.ToString();
+            txt_NgayNhap.Value = DateTime.Now;
             txt_NhanVienDat.Text = maND;
             txt_maPhieu.Text = dh.taoMaPhieuDatHang();
             //txt_NgayNhap.Text = DateTime.Now.Day + "/ " + DateTime.Now.Month + "/ " + DateTime.Now.Year + "";
@@ -171,36 +255,30 @@ namespace GUI
 
         private void dataGridViewPhieuDatHang_SelectionChanged(object sender, EventArgs e)
         {
+            btnSuaPhieuDatHang.Enabled = true;
             if (dataGridViewPhieuDatHang.SelectedCells.Count > 0)
             {
                 int vt = dataGridViewPhieuDatHang.SelectedCells[0].RowIndex;
                 maPhieuDangChon = dataGridViewPhieuDatHang.Rows[vt].Cells[0].Value.ToString().Trim();
                 txt_maPhieu.Text = maPhieuDangChon;
                 cbo_NhaCungCap.Text = dataGridViewPhieuDatHang.Rows[vt].Cells[1].Value.ToString().Trim();
-                txt_NgayNhap.Text = dataGridViewPhieuDatHang.Rows[vt].Cells[2].Value.ToString().Trim();
+                txt_NgayNhap.Value = Convert.ToDateTime(dataGridViewPhieuDatHang.Rows[vt].Cells[2].Value.ToString().Trim());
                 txt_TongTien.Text = dataGridViewPhieuDatHang.Rows[vt].Cells[3].Value.ToString().Trim();
                 txt_NhanVienDat.Text = dataGridViewPhieuDatHang.Rows[vt].Cells[4].Value.ToString().Trim();
                 cbo_PhuongThuc.Text = dataGridViewPhieuDatHang.Rows[vt].Cells[5].Value.ToString().Trim();
                 cbo_TinhTrang.Text = dataGridViewPhieuDatHang.Rows[vt].Cells[6].Value.ToString().Trim();
                 dataGridViewChiTiet.DataSource = ct.load_chiTietPhieuDatHangTheoMa(maPhieuDangChon);
             }
-
         }
 
         private void toolStripSua_Click(object sender, EventArgs e)
         {
-            if (dataGridViewChiTiet.SelectedCells.Count > 0)
-            {
-                int vt = dataGridViewChiTiet.SelectedCells[0].RowIndex;
-                string maDH = dataGridViewChiTiet.Rows[vt].Cells[0].Value.ToString().Trim();
-                string maNL = dataGridViewChiTiet.Rows[vt].Cells[1].Value.ToString().Trim();
-                string DVT = txt_DonViTinh.Text;
-                int SL = Convert.ToInt32(txt_SoLuong.Text);
-                int donGia = Convert.ToInt32(txt_DonGia.Text);
-                ct.suaChiTiet(maDH, maNL, DVT, SL, donGia);
-                MessageBox.Show("Sửa thành công");
-                load_DataGridView();
-            }
+            ct.suaChiTiet(maPhieuDangChon, maNLDangChon, txt_DonViTinh.Text, Convert.ToInt32(txt_SoLuong.Text), Convert.ToInt32(txt_DonGia.Text));
+            dataGridViewChiTiet.DataSource = ct.load_chiTietPhieuDatHangTheoMa(maPhieuDangChon);
+            tinhTong();
+            dh.capNhatTongTien(maPhieuDangChon, (int)tong);
+            load_DataGridView();
+            MessageBox.Show("Sửa thành công");
         }
 
         private void toolStripXoa_Click(object sender, EventArgs e)
@@ -209,6 +287,9 @@ namespace GUI
             {
                 int vt = dataGridViewChiTiet.SelectedCells[0].RowIndex;
                 ct.xoaChiTietPhieuDatHang(dataGridViewChiTiet.Rows[vt].Cells[0].Value.ToString(), dataGridViewChiTiet.Rows[vt].Cells[1].Value.ToString());
+                dataGridViewChiTiet.DataSource = ct.load_chiTietPhieuDatHangTheoMa(maPhieuDangChon);
+                tinhTong();
+                dh.capNhatTongTien(maPhieuDangChon, (int)tong);
                 MessageBox.Show("Xóa thành công");
                 load_DataGridView();
             }
@@ -230,10 +311,61 @@ namespace GUI
             if (dataGridViewChiTiet.SelectedCells.Count > 0)
             {
                 int vt = dataGridViewChiTiet.SelectedCells[0].RowIndex;
-                txt_SoLuong.Text = dataGridViewChiTiet.Rows[vt].Cells[2].Value.ToString().Trim();
-                txt_DonGia.Text = dataGridViewChiTiet.Rows[vt].Cells[3].Value.ToString().Trim();
-                txt_DonViTinh.Text = dataGridViewChiTiet.Rows[vt].Cells[4].Value.ToString().Trim();
+                maPhieuDangChon = dataGridViewChiTiet.Rows[vt].Cells[0].Value.ToString().Trim();
+                maNLDangChon = dataGridViewChiTiet.Rows[vt].Cells[1].Value.ToString().Trim();
+                txt_SoLuong.Text = dataGridViewChiTiet.Rows[vt].Cells[3].Value.ToString().Trim();
+                txt_DonGia.Text = dataGridViewChiTiet.Rows[vt].Cells[4].Value.ToString().Trim();
+                txt_DonViTinh.Text = dataGridViewChiTiet.Rows[vt].Cells[2].Value.ToString().Trim();
             }
+
+        }
+
+        private void btnSuaPhieuDatHang_Click(object sender, EventArgs e)
+        {
+            dh.suaPhieuDatHang(txt_maPhieu.Text, cbo_NhaCungCap.SelectedValue.ToString(), txt_NgayNhap.Value, Convert.ToInt32(txt_TongTien.Text.Replace(".0000", "").ToString().Trim()), txt_NhanVienDat.Text, cbo_PhuongThuc.Text, cbo_TinhTrang.Text);
+            MessageBox.Show("Sửa thành công");
+            load_DataGridView();
+        }
+
+        private void xoaPDHToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dh.xoaPhieuDathang(txt_maPhieu.Text);
+                MessageBox.Show("Xóa thành công");
+                load_DataGridView();
+            }
+            catch
+            {
+                MessageBox.Show("Không thể xóa hóa đơn đã được nhập hàng");
+            }
+            
+        }
+
+        private void txt_DonGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_SoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnNhapChiTietPhieu_Click(object sender, EventArgs e)
+        {
+            ct.suaChiTiet(maPhieuDangChon, maNLDangChon, txt_DonViTinh.Text, Convert.ToInt32(txt_SoLuong.Text), Convert.ToInt32(txt_DonGia.Text));
+            dataGridViewChiTiet.DataSource = ct.load_chiTietPhieuDatHangTheoMa(maPhieuDangChon);
+            tinhTong();
+            dh.capNhatTongTien(maPhieuDangChon, (int)tong);
+            load_DataGridView();
+            MessageBox.Show("Sửa thành công");
         }
     }
 }

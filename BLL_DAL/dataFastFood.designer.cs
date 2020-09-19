@@ -33,6 +33,9 @@ namespace BLL_DAL
     partial void InsertQL_ChiTietHoaDon(QL_ChiTietHoaDon instance);
     partial void UpdateQL_ChiTietHoaDon(QL_ChiTietHoaDon instance);
     partial void DeleteQL_ChiTietHoaDon(QL_ChiTietHoaDon instance);
+    partial void InsertQL_SanPham(QL_SanPham instance);
+    partial void UpdateQL_SanPham(QL_SanPham instance);
+    partial void DeleteQL_SanPham(QL_SanPham instance);
     partial void InsertQL_ChiTietNhapHang(QL_ChiTietNhapHang instance);
     partial void UpdateQL_ChiTietNhapHang(QL_ChiTietNhapHang instance);
     partial void DeleteQL_ChiTietNhapHang(QL_ChiTietNhapHang instance);
@@ -60,9 +63,6 @@ namespace BLL_DAL
     partial void InsertQL_NguoiDung(QL_NguoiDung instance);
     partial void UpdateQL_NguoiDung(QL_NguoiDung instance);
     partial void DeleteQL_NguoiDung(QL_NguoiDung instance);
-    partial void InsertQL_NguoiDungTrongNhom(QL_NguoiDungTrongNhom instance);
-    partial void UpdateQL_NguoiDungTrongNhom(QL_NguoiDungTrongNhom instance);
-    partial void DeleteQL_NguoiDungTrongNhom(QL_NguoiDungTrongNhom instance);
     partial void InsertQL_NguyenLieu(QL_NguyenLieu instance);
     partial void UpdateQL_NguyenLieu(QL_NguyenLieu instance);
     partial void DeleteQL_NguyenLieu(QL_NguyenLieu instance);
@@ -81,13 +81,10 @@ namespace BLL_DAL
     partial void InsertQL_PhieuNhan(QL_PhieuNhan instance);
     partial void UpdateQL_PhieuNhan(QL_PhieuNhan instance);
     partial void DeleteQL_PhieuNhan(QL_PhieuNhan instance);
-    partial void InsertQL_SanPham(QL_SanPham instance);
-    partial void UpdateQL_SanPham(QL_SanPham instance);
-    partial void DeleteQL_SanPham(QL_SanPham instance);
     #endregion
 		
 		public dataFastFoodDataContext() : 
-				base(global::BLL_DAL.Properties.Settings.Default.DAMN_QuanLyCaPheConnectionString, mappingSource)
+				base(global::BLL_DAL.Properties.Settings.Default.DAMN_QuanLyCaPheConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -121,6 +118,14 @@ namespace BLL_DAL
 			get
 			{
 				return this.GetTable<QL_ChiTietHoaDon>();
+			}
+		}
+		
+		public System.Data.Linq.Table<QL_SanPham> QL_SanPhams
+		{
+			get
+			{
+				return this.GetTable<QL_SanPham>();
 			}
 		}
 		
@@ -196,14 +201,6 @@ namespace BLL_DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<QL_NguoiDungTrongNhom> QL_NguoiDungTrongNhoms
-		{
-			get
-			{
-				return this.GetTable<QL_NguoiDungTrongNhom>();
-			}
-		}
-		
 		public System.Data.Linq.Table<QL_NguyenLieu> QL_NguyenLieus
 		{
 			get
@@ -251,14 +248,6 @@ namespace BLL_DAL
 				return this.GetTable<QL_PhieuNhan>();
 			}
 		}
-		
-		public System.Data.Linq.Table<QL_SanPham> QL_SanPhams
-		{
-			get
-			{
-				return this.GetTable<QL_SanPham>();
-			}
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.QL_ChiTietHoaDon")]
@@ -275,9 +264,9 @@ namespace BLL_DAL
 		
 		private System.Nullable<int> _DonGia;
 		
-		private EntityRef<QL_HoaDon_BanHang> _QL_HoaDon_BanHang;
-		
 		private EntityRef<QL_SanPham> _QL_SanPham;
+		
+		private EntityRef<QL_HoaDon_BanHang> _QL_HoaDon_BanHang;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -295,8 +284,8 @@ namespace BLL_DAL
 		
 		public QL_ChiTietHoaDon()
 		{
-			this._QL_HoaDon_BanHang = default(EntityRef<QL_HoaDon_BanHang>);
 			this._QL_SanPham = default(EntityRef<QL_SanPham>);
+			this._QL_HoaDon_BanHang = default(EntityRef<QL_HoaDon_BanHang>);
 			OnCreated();
 		}
 		
@@ -324,7 +313,7 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="NVarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MaSP
 		{
 			get
@@ -388,40 +377,6 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_HoaDon_BanHang_QL_ChiTietHoaDon", Storage="_QL_HoaDon_BanHang", ThisKey="MaHD", OtherKey="MaHD", IsForeignKey=true)]
-		public QL_HoaDon_BanHang QL_HoaDon_BanHang
-		{
-			get
-			{
-				return this._QL_HoaDon_BanHang.Entity;
-			}
-			set
-			{
-				QL_HoaDon_BanHang previousValue = this._QL_HoaDon_BanHang.Entity;
-				if (((previousValue != value) 
-							|| (this._QL_HoaDon_BanHang.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._QL_HoaDon_BanHang.Entity = null;
-						previousValue.QL_ChiTietHoaDons.Remove(this);
-					}
-					this._QL_HoaDon_BanHang.Entity = value;
-					if ((value != null))
-					{
-						value.QL_ChiTietHoaDons.Add(this);
-						this._MaHD = value.MaHD;
-					}
-					else
-					{
-						this._MaHD = default(string);
-					}
-					this.SendPropertyChanged("QL_HoaDon_BanHang");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_SanPham_QL_ChiTietHoaDon", Storage="_QL_SanPham", ThisKey="MaSP", OtherKey="MaSP", IsForeignKey=true)]
 		public QL_SanPham QL_SanPham
 		{
@@ -456,6 +411,40 @@ namespace BLL_DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_HoaDon_BanHang_QL_ChiTietHoaDon", Storage="_QL_HoaDon_BanHang", ThisKey="MaHD", OtherKey="MaHD", IsForeignKey=true)]
+		public QL_HoaDon_BanHang QL_HoaDon_BanHang
+		{
+			get
+			{
+				return this._QL_HoaDon_BanHang.Entity;
+			}
+			set
+			{
+				QL_HoaDon_BanHang previousValue = this._QL_HoaDon_BanHang.Entity;
+				if (((previousValue != value) 
+							|| (this._QL_HoaDon_BanHang.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._QL_HoaDon_BanHang.Entity = null;
+						previousValue.QL_ChiTietHoaDons.Remove(this);
+					}
+					this._QL_HoaDon_BanHang.Entity = value;
+					if ((value != null))
+					{
+						value.QL_ChiTietHoaDons.Add(this);
+						this._MaHD = value.MaHD;
+					}
+					else
+					{
+						this._MaHD = default(string);
+					}
+					this.SendPropertyChanged("QL_HoaDon_BanHang");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -474,6 +463,285 @@ namespace BLL_DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.QL_SanPham")]
+	public partial class QL_SanPham : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MaSP;
+		
+		private string _TenSanPham;
+		
+		private string _TinhTrang;
+		
+		private System.Nullable<decimal> _Gia;
+		
+		private string _Hinh;
+		
+		private string _MaLoaiSP;
+		
+		private EntitySet<QL_ChiTietHoaDon> _QL_ChiTietHoaDons;
+		
+		private EntitySet<QL_NguyenLieu_SanPham> _QL_NguyenLieu_SanPhams;
+		
+		private EntityRef<QL_LoaiSanPham> _QL_LoaiSanPham;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaSPChanging(string value);
+    partial void OnMaSPChanged();
+    partial void OnTenSanPhamChanging(string value);
+    partial void OnTenSanPhamChanged();
+    partial void OnTinhTrangChanging(string value);
+    partial void OnTinhTrangChanged();
+    partial void OnGiaChanging(System.Nullable<decimal> value);
+    partial void OnGiaChanged();
+    partial void OnHinhChanging(string value);
+    partial void OnHinhChanged();
+    partial void OnMaLoaiSPChanging(string value);
+    partial void OnMaLoaiSPChanged();
+    #endregion
+		
+		public QL_SanPham()
+		{
+			this._QL_ChiTietHoaDons = new EntitySet<QL_ChiTietHoaDon>(new Action<QL_ChiTietHoaDon>(this.attach_QL_ChiTietHoaDons), new Action<QL_ChiTietHoaDon>(this.detach_QL_ChiTietHoaDons));
+			this._QL_NguyenLieu_SanPhams = new EntitySet<QL_NguyenLieu_SanPham>(new Action<QL_NguyenLieu_SanPham>(this.attach_QL_NguyenLieu_SanPhams), new Action<QL_NguyenLieu_SanPham>(this.detach_QL_NguyenLieu_SanPhams));
+			this._QL_LoaiSanPham = default(EntityRef<QL_LoaiSanPham>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MaSP
+		{
+			get
+			{
+				return this._MaSP;
+			}
+			set
+			{
+				if ((this._MaSP != value))
+				{
+					this.OnMaSPChanging(value);
+					this.SendPropertyChanging();
+					this._MaSP = value;
+					this.SendPropertyChanged("MaSP");
+					this.OnMaSPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenSanPham", DbType="NVarChar(50)")]
+		public string TenSanPham
+		{
+			get
+			{
+				return this._TenSanPham;
+			}
+			set
+			{
+				if ((this._TenSanPham != value))
+				{
+					this.OnTenSanPhamChanging(value);
+					this.SendPropertyChanging();
+					this._TenSanPham = value;
+					this.SendPropertyChanged("TenSanPham");
+					this.OnTenSanPhamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TinhTrang", DbType="NVarChar(50)")]
+		public string TinhTrang
+		{
+			get
+			{
+				return this._TinhTrang;
+			}
+			set
+			{
+				if ((this._TinhTrang != value))
+				{
+					this.OnTinhTrangChanging(value);
+					this.SendPropertyChanging();
+					this._TinhTrang = value;
+					this.SendPropertyChanged("TinhTrang");
+					this.OnTinhTrangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gia", DbType="Money")]
+		public System.Nullable<decimal> Gia
+		{
+			get
+			{
+				return this._Gia;
+			}
+			set
+			{
+				if ((this._Gia != value))
+				{
+					this.OnGiaChanging(value);
+					this.SendPropertyChanging();
+					this._Gia = value;
+					this.SendPropertyChanged("Gia");
+					this.OnGiaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hinh", DbType="NVarChar(50)")]
+		public string Hinh
+		{
+			get
+			{
+				return this._Hinh;
+			}
+			set
+			{
+				if ((this._Hinh != value))
+				{
+					this.OnHinhChanging(value);
+					this.SendPropertyChanging();
+					this._Hinh = value;
+					this.SendPropertyChanged("Hinh");
+					this.OnHinhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoaiSP", DbType="NVarChar(50)")]
+		public string MaLoaiSP
+		{
+			get
+			{
+				return this._MaLoaiSP;
+			}
+			set
+			{
+				if ((this._MaLoaiSP != value))
+				{
+					if (this._QL_LoaiSanPham.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaLoaiSPChanging(value);
+					this.SendPropertyChanging();
+					this._MaLoaiSP = value;
+					this.SendPropertyChanged("MaLoaiSP");
+					this.OnMaLoaiSPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_SanPham_QL_ChiTietHoaDon", Storage="_QL_ChiTietHoaDons", ThisKey="MaSP", OtherKey="MaSP")]
+		public EntitySet<QL_ChiTietHoaDon> QL_ChiTietHoaDons
+		{
+			get
+			{
+				return this._QL_ChiTietHoaDons;
+			}
+			set
+			{
+				this._QL_ChiTietHoaDons.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_SanPham_QL_NguyenLieu_SanPham", Storage="_QL_NguyenLieu_SanPhams", ThisKey="MaSP", OtherKey="MaSP")]
+		public EntitySet<QL_NguyenLieu_SanPham> QL_NguyenLieu_SanPhams
+		{
+			get
+			{
+				return this._QL_NguyenLieu_SanPhams;
+			}
+			set
+			{
+				this._QL_NguyenLieu_SanPhams.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_LoaiSanPham_QL_SanPham", Storage="_QL_LoaiSanPham", ThisKey="MaLoaiSP", OtherKey="MaLoaiSP", IsForeignKey=true)]
+		public QL_LoaiSanPham QL_LoaiSanPham
+		{
+			get
+			{
+				return this._QL_LoaiSanPham.Entity;
+			}
+			set
+			{
+				QL_LoaiSanPham previousValue = this._QL_LoaiSanPham.Entity;
+				if (((previousValue != value) 
+							|| (this._QL_LoaiSanPham.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._QL_LoaiSanPham.Entity = null;
+						previousValue.QL_SanPhams.Remove(this);
+					}
+					this._QL_LoaiSanPham.Entity = value;
+					if ((value != null))
+					{
+						value.QL_SanPhams.Add(this);
+						this._MaLoaiSP = value.MaLoaiSP;
+					}
+					else
+					{
+						this._MaLoaiSP = default(string);
+					}
+					this.SendPropertyChanged("QL_LoaiSanPham");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_QL_ChiTietHoaDons(QL_ChiTietHoaDon entity)
+		{
+			this.SendPropertyChanging();
+			entity.QL_SanPham = this;
+		}
+		
+		private void detach_QL_ChiTietHoaDons(QL_ChiTietHoaDon entity)
+		{
+			this.SendPropertyChanging();
+			entity.QL_SanPham = null;
+		}
+		
+		private void attach_QL_NguyenLieu_SanPhams(QL_NguyenLieu_SanPham entity)
+		{
+			this.SendPropertyChanging();
+			entity.QL_SanPham = this;
+		}
+		
+		private void detach_QL_NguyenLieu_SanPhams(QL_NguyenLieu_SanPham entity)
+		{
+			this.SendPropertyChanging();
+			entity.QL_SanPham = null;
 		}
 	}
 	
@@ -2256,19 +2524,31 @@ namespace BLL_DAL
 		
 		private string _MaND;
 		
-		private string _Password;
-		
 		private string _TenNguoiDung;
 		
 		private string _SoDienThoai;
 		
+		private string _CMND;
+		
+		private string _DiaChi;
+		
+		private string _Email;
+		
+		private System.Nullable<System.DateTime> _NgaySinh;
+		
+		private System.Nullable<System.DateTime> _NgayVL;
+		
+		private string _MaNhom;
+		
 		private string _HoatDong;
+		
+		private string _Password;
 		
 		private EntitySet<QL_HoaDon_BanHang> _QL_HoaDon_BanHangs;
 		
 		private EntitySet<QL_HoaDon_NhapHang> _QL_HoaDon_NhapHangs;
 		
-		private EntitySet<QL_NguoiDungTrongNhom> _QL_NguoiDungTrongNhoms;
+		private EntityRef<QL_NhomNguoiDung> _QL_NhomNguoiDung;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2276,21 +2556,33 @@ namespace BLL_DAL
     partial void OnCreated();
     partial void OnMaNDChanging(string value);
     partial void OnMaNDChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
     partial void OnTenNguoiDungChanging(string value);
     partial void OnTenNguoiDungChanged();
     partial void OnSoDienThoaiChanging(string value);
     partial void OnSoDienThoaiChanged();
+    partial void OnCMNDChanging(string value);
+    partial void OnCMNDChanged();
+    partial void OnDiaChiChanging(string value);
+    partial void OnDiaChiChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnNgaySinhChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgaySinhChanged();
+    partial void OnNgayVLChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayVLChanged();
+    partial void OnMaNhomChanging(string value);
+    partial void OnMaNhomChanged();
     partial void OnHoatDongChanging(string value);
     partial void OnHoatDongChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
     #endregion
 		
 		public QL_NguoiDung()
 		{
 			this._QL_HoaDon_BanHangs = new EntitySet<QL_HoaDon_BanHang>(new Action<QL_HoaDon_BanHang>(this.attach_QL_HoaDon_BanHangs), new Action<QL_HoaDon_BanHang>(this.detach_QL_HoaDon_BanHangs));
 			this._QL_HoaDon_NhapHangs = new EntitySet<QL_HoaDon_NhapHang>(new Action<QL_HoaDon_NhapHang>(this.attach_QL_HoaDon_NhapHangs), new Action<QL_HoaDon_NhapHang>(this.detach_QL_HoaDon_NhapHangs));
-			this._QL_NguoiDungTrongNhoms = new EntitySet<QL_NguoiDungTrongNhom>(new Action<QL_NguoiDungTrongNhom>(this.attach_QL_NguoiDungTrongNhoms), new Action<QL_NguoiDungTrongNhom>(this.detach_QL_NguoiDungTrongNhoms));
+			this._QL_NhomNguoiDung = default(EntityRef<QL_NhomNguoiDung>);
 			OnCreated();
 		}
 		
@@ -2310,26 +2602,6 @@ namespace BLL_DAL
 					this._MaND = value;
 					this.SendPropertyChanged("MaND");
 					this.OnMaNDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
 				}
 			}
 		}
@@ -2374,6 +2646,130 @@ namespace BLL_DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMND", DbType="NChar(10)")]
+		public string CMND
+		{
+			get
+			{
+				return this._CMND;
+			}
+			set
+			{
+				if ((this._CMND != value))
+				{
+					this.OnCMNDChanging(value);
+					this.SendPropertyChanging();
+					this._CMND = value;
+					this.SendPropertyChanged("CMND");
+					this.OnCMNDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(MAX)")]
+		public string DiaChi
+		{
+			get
+			{
+				return this._DiaChi;
+			}
+			set
+			{
+				if ((this._DiaChi != value))
+				{
+					this.OnDiaChiChanging(value);
+					this.SendPropertyChanging();
+					this._DiaChi = value;
+					this.SendPropertyChanged("DiaChi");
+					this.OnDiaChiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(MAX)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgaySinh", DbType="Date")]
+		public System.Nullable<System.DateTime> NgaySinh
+		{
+			get
+			{
+				return this._NgaySinh;
+			}
+			set
+			{
+				if ((this._NgaySinh != value))
+				{
+					this.OnNgaySinhChanging(value);
+					this.SendPropertyChanging();
+					this._NgaySinh = value;
+					this.SendPropertyChanged("NgaySinh");
+					this.OnNgaySinhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayVL", DbType="Date")]
+		public System.Nullable<System.DateTime> NgayVL
+		{
+			get
+			{
+				return this._NgayVL;
+			}
+			set
+			{
+				if ((this._NgayVL != value))
+				{
+					this.OnNgayVLChanging(value);
+					this.SendPropertyChanging();
+					this._NgayVL = value;
+					this.SendPropertyChanged("NgayVL");
+					this.OnNgayVLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNhom", DbType="NVarChar(50)")]
+		public string MaNhom
+		{
+			get
+			{
+				return this._MaNhom;
+			}
+			set
+			{
+				if ((this._MaNhom != value))
+				{
+					if (this._QL_NhomNguoiDung.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaNhomChanging(value);
+					this.SendPropertyChanging();
+					this._MaNhom = value;
+					this.SendPropertyChanged("MaNhom");
+					this.OnMaNhomChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoatDong", DbType="NChar(10)")]
 		public string HoatDong
 		{
@@ -2390,6 +2786,26 @@ namespace BLL_DAL
 					this._HoatDong = value;
 					this.SendPropertyChanged("HoatDong");
 					this.OnHoatDongChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
 				}
 			}
 		}
@@ -2420,16 +2836,37 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_NguoiDung_QL_NguoiDungTrongNhom", Storage="_QL_NguoiDungTrongNhoms", ThisKey="MaND", OtherKey="MaND")]
-		public EntitySet<QL_NguoiDungTrongNhom> QL_NguoiDungTrongNhoms
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_NhomNguoiDung_QL_NguoiDung", Storage="_QL_NhomNguoiDung", ThisKey="MaNhom", OtherKey="MaNhom", IsForeignKey=true)]
+		public QL_NhomNguoiDung QL_NhomNguoiDung
 		{
 			get
 			{
-				return this._QL_NguoiDungTrongNhoms;
+				return this._QL_NhomNguoiDung.Entity;
 			}
 			set
 			{
-				this._QL_NguoiDungTrongNhoms.Assign(value);
+				QL_NhomNguoiDung previousValue = this._QL_NhomNguoiDung.Entity;
+				if (((previousValue != value) 
+							|| (this._QL_NhomNguoiDung.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._QL_NhomNguoiDung.Entity = null;
+						previousValue.QL_NguoiDungs.Remove(this);
+					}
+					this._QL_NhomNguoiDung.Entity = value;
+					if ((value != null))
+					{
+						value.QL_NguoiDungs.Add(this);
+						this._MaNhom = value.MaNhom;
+					}
+					else
+					{
+						this._MaNhom = default(string);
+					}
+					this.SendPropertyChanged("QL_NhomNguoiDung");
+				}
 			}
 		}
 		
@@ -2475,210 +2912,6 @@ namespace BLL_DAL
 		{
 			this.SendPropertyChanging();
 			entity.QL_NguoiDung = null;
-		}
-		
-		private void attach_QL_NguoiDungTrongNhoms(QL_NguoiDungTrongNhom entity)
-		{
-			this.SendPropertyChanging();
-			entity.QL_NguoiDung = this;
-		}
-		
-		private void detach_QL_NguoiDungTrongNhoms(QL_NguoiDungTrongNhom entity)
-		{
-			this.SendPropertyChanging();
-			entity.QL_NguoiDung = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.QL_NguoiDungTrongNhom")]
-	public partial class QL_NguoiDungTrongNhom : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MaNhom;
-		
-		private string _MaND;
-		
-		private string _GhiChu;
-		
-		private EntityRef<QL_NguoiDung> _QL_NguoiDung;
-		
-		private EntityRef<QL_NhomNguoiDung> _QL_NhomNguoiDung;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaNhomChanging(string value);
-    partial void OnMaNhomChanged();
-    partial void OnMaNDChanging(string value);
-    partial void OnMaNDChanged();
-    partial void OnGhiChuChanging(string value);
-    partial void OnGhiChuChanged();
-    #endregion
-		
-		public QL_NguoiDungTrongNhom()
-		{
-			this._QL_NguoiDung = default(EntityRef<QL_NguoiDung>);
-			this._QL_NhomNguoiDung = default(EntityRef<QL_NhomNguoiDung>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNhom", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MaNhom
-		{
-			get
-			{
-				return this._MaNhom;
-			}
-			set
-			{
-				if ((this._MaNhom != value))
-				{
-					if (this._QL_NhomNguoiDung.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaNhomChanging(value);
-					this.SendPropertyChanging();
-					this._MaNhom = value;
-					this.SendPropertyChanged("MaNhom");
-					this.OnMaNhomChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaND", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MaND
-		{
-			get
-			{
-				return this._MaND;
-			}
-			set
-			{
-				if ((this._MaND != value))
-				{
-					if (this._QL_NguoiDung.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaNDChanging(value);
-					this.SendPropertyChanging();
-					this._MaND = value;
-					this.SendPropertyChanged("MaND");
-					this.OnMaNDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GhiChu", DbType="NVarChar(50)")]
-		public string GhiChu
-		{
-			get
-			{
-				return this._GhiChu;
-			}
-			set
-			{
-				if ((this._GhiChu != value))
-				{
-					this.OnGhiChuChanging(value);
-					this.SendPropertyChanging();
-					this._GhiChu = value;
-					this.SendPropertyChanged("GhiChu");
-					this.OnGhiChuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_NguoiDung_QL_NguoiDungTrongNhom", Storage="_QL_NguoiDung", ThisKey="MaND", OtherKey="MaND", IsForeignKey=true)]
-		public QL_NguoiDung QL_NguoiDung
-		{
-			get
-			{
-				return this._QL_NguoiDung.Entity;
-			}
-			set
-			{
-				QL_NguoiDung previousValue = this._QL_NguoiDung.Entity;
-				if (((previousValue != value) 
-							|| (this._QL_NguoiDung.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._QL_NguoiDung.Entity = null;
-						previousValue.QL_NguoiDungTrongNhoms.Remove(this);
-					}
-					this._QL_NguoiDung.Entity = value;
-					if ((value != null))
-					{
-						value.QL_NguoiDungTrongNhoms.Add(this);
-						this._MaND = value.MaND;
-					}
-					else
-					{
-						this._MaND = default(string);
-					}
-					this.SendPropertyChanged("QL_NguoiDung");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_NhomNguoiDung_QL_NguoiDungTrongNhom", Storage="_QL_NhomNguoiDung", ThisKey="MaNhom", OtherKey="MaNhom", IsForeignKey=true)]
-		public QL_NhomNguoiDung QL_NhomNguoiDung
-		{
-			get
-			{
-				return this._QL_NhomNguoiDung.Entity;
-			}
-			set
-			{
-				QL_NhomNguoiDung previousValue = this._QL_NhomNguoiDung.Entity;
-				if (((previousValue != value) 
-							|| (this._QL_NhomNguoiDung.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._QL_NhomNguoiDung.Entity = null;
-						previousValue.QL_NguoiDungTrongNhoms.Remove(this);
-					}
-					this._QL_NhomNguoiDung.Entity = value;
-					if ((value != null))
-					{
-						value.QL_NguoiDungTrongNhoms.Add(this);
-						this._MaNhom = value.MaNhom;
-					}
-					else
-					{
-						this._MaNhom = default(string);
-					}
-					this.SendPropertyChanged("QL_NhomNguoiDung");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
@@ -2996,7 +3229,7 @@ namespace BLL_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="NVarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MaSP
 		{
 			get
@@ -3233,7 +3466,7 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(MAX)")]
 		public string DiaChi
 		{
 			get
@@ -3349,7 +3582,7 @@ namespace BLL_DAL
 		
 		private string _TenNhom;
 		
-		private EntitySet<QL_NguoiDungTrongNhom> _QL_NguoiDungTrongNhoms;
+		private EntitySet<QL_NguoiDung> _QL_NguoiDungs;
 		
 		private EntitySet<QL_PhanQuyen> _QL_PhanQuyens;
 		
@@ -3365,7 +3598,7 @@ namespace BLL_DAL
 		
 		public QL_NhomNguoiDung()
 		{
-			this._QL_NguoiDungTrongNhoms = new EntitySet<QL_NguoiDungTrongNhom>(new Action<QL_NguoiDungTrongNhom>(this.attach_QL_NguoiDungTrongNhoms), new Action<QL_NguoiDungTrongNhom>(this.detach_QL_NguoiDungTrongNhoms));
+			this._QL_NguoiDungs = new EntitySet<QL_NguoiDung>(new Action<QL_NguoiDung>(this.attach_QL_NguoiDungs), new Action<QL_NguoiDung>(this.detach_QL_NguoiDungs));
 			this._QL_PhanQuyens = new EntitySet<QL_PhanQuyen>(new Action<QL_PhanQuyen>(this.attach_QL_PhanQuyens), new Action<QL_PhanQuyen>(this.detach_QL_PhanQuyens));
 			OnCreated();
 		}
@@ -3410,16 +3643,16 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_NhomNguoiDung_QL_NguoiDungTrongNhom", Storage="_QL_NguoiDungTrongNhoms", ThisKey="MaNhom", OtherKey="MaNhom")]
-		public EntitySet<QL_NguoiDungTrongNhom> QL_NguoiDungTrongNhoms
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_NhomNguoiDung_QL_NguoiDung", Storage="_QL_NguoiDungs", ThisKey="MaNhom", OtherKey="MaNhom")]
+		public EntitySet<QL_NguoiDung> QL_NguoiDungs
 		{
 			get
 			{
-				return this._QL_NguoiDungTrongNhoms;
+				return this._QL_NguoiDungs;
 			}
 			set
 			{
-				this._QL_NguoiDungTrongNhoms.Assign(value);
+				this._QL_NguoiDungs.Assign(value);
 			}
 		}
 		
@@ -3456,13 +3689,13 @@ namespace BLL_DAL
 			}
 		}
 		
-		private void attach_QL_NguoiDungTrongNhoms(QL_NguoiDungTrongNhom entity)
+		private void attach_QL_NguoiDungs(QL_NguoiDung entity)
 		{
 			this.SendPropertyChanging();
 			entity.QL_NhomNguoiDung = this;
 		}
 		
-		private void detach_QL_NguoiDungTrongNhoms(QL_NguoiDungTrongNhom entity)
+		private void detach_QL_NguoiDungs(QL_NguoiDung entity)
 		{
 			this.SendPropertyChanging();
 			entity.QL_NhomNguoiDung = null;
@@ -3873,285 +4106,6 @@ namespace BLL_DAL
 		{
 			this.SendPropertyChanging();
 			entity.QL_PhieuNhan = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.QL_SanPham")]
-	public partial class QL_SanPham : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MaSP;
-		
-		private string _TenSanPham;
-		
-		private string _TinhTrang;
-		
-		private System.Nullable<decimal> _Gia;
-		
-		private string _Hinh;
-		
-		private string _MaLoaiSP;
-		
-		private EntitySet<QL_ChiTietHoaDon> _QL_ChiTietHoaDons;
-		
-		private EntitySet<QL_NguyenLieu_SanPham> _QL_NguyenLieu_SanPhams;
-		
-		private EntityRef<QL_LoaiSanPham> _QL_LoaiSanPham;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaSPChanging(string value);
-    partial void OnMaSPChanged();
-    partial void OnTenSanPhamChanging(string value);
-    partial void OnTenSanPhamChanged();
-    partial void OnTinhTrangChanging(string value);
-    partial void OnTinhTrangChanged();
-    partial void OnGiaChanging(System.Nullable<decimal> value);
-    partial void OnGiaChanged();
-    partial void OnHinhChanging(string value);
-    partial void OnHinhChanged();
-    partial void OnMaLoaiSPChanging(string value);
-    partial void OnMaLoaiSPChanged();
-    #endregion
-		
-		public QL_SanPham()
-		{
-			this._QL_ChiTietHoaDons = new EntitySet<QL_ChiTietHoaDon>(new Action<QL_ChiTietHoaDon>(this.attach_QL_ChiTietHoaDons), new Action<QL_ChiTietHoaDon>(this.detach_QL_ChiTietHoaDons));
-			this._QL_NguyenLieu_SanPhams = new EntitySet<QL_NguyenLieu_SanPham>(new Action<QL_NguyenLieu_SanPham>(this.attach_QL_NguyenLieu_SanPhams), new Action<QL_NguyenLieu_SanPham>(this.detach_QL_NguyenLieu_SanPhams));
-			this._QL_LoaiSanPham = default(EntityRef<QL_LoaiSanPham>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="NVarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MaSP
-		{
-			get
-			{
-				return this._MaSP;
-			}
-			set
-			{
-				if ((this._MaSP != value))
-				{
-					this.OnMaSPChanging(value);
-					this.SendPropertyChanging();
-					this._MaSP = value;
-					this.SendPropertyChanged("MaSP");
-					this.OnMaSPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenSanPham", DbType="NVarChar(50)")]
-		public string TenSanPham
-		{
-			get
-			{
-				return this._TenSanPham;
-			}
-			set
-			{
-				if ((this._TenSanPham != value))
-				{
-					this.OnTenSanPhamChanging(value);
-					this.SendPropertyChanging();
-					this._TenSanPham = value;
-					this.SendPropertyChanged("TenSanPham");
-					this.OnTenSanPhamChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TinhTrang", DbType="NVarChar(50)")]
-		public string TinhTrang
-		{
-			get
-			{
-				return this._TinhTrang;
-			}
-			set
-			{
-				if ((this._TinhTrang != value))
-				{
-					this.OnTinhTrangChanging(value);
-					this.SendPropertyChanging();
-					this._TinhTrang = value;
-					this.SendPropertyChanged("TinhTrang");
-					this.OnTinhTrangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gia", DbType="Money")]
-		public System.Nullable<decimal> Gia
-		{
-			get
-			{
-				return this._Gia;
-			}
-			set
-			{
-				if ((this._Gia != value))
-				{
-					this.OnGiaChanging(value);
-					this.SendPropertyChanging();
-					this._Gia = value;
-					this.SendPropertyChanged("Gia");
-					this.OnGiaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hinh", DbType="NVarChar(50)")]
-		public string Hinh
-		{
-			get
-			{
-				return this._Hinh;
-			}
-			set
-			{
-				if ((this._Hinh != value))
-				{
-					this.OnHinhChanging(value);
-					this.SendPropertyChanging();
-					this._Hinh = value;
-					this.SendPropertyChanged("Hinh");
-					this.OnHinhChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoaiSP", DbType="NVarChar(50)")]
-		public string MaLoaiSP
-		{
-			get
-			{
-				return this._MaLoaiSP;
-			}
-			set
-			{
-				if ((this._MaLoaiSP != value))
-				{
-					if (this._QL_LoaiSanPham.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaLoaiSPChanging(value);
-					this.SendPropertyChanging();
-					this._MaLoaiSP = value;
-					this.SendPropertyChanged("MaLoaiSP");
-					this.OnMaLoaiSPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_SanPham_QL_ChiTietHoaDon", Storage="_QL_ChiTietHoaDons", ThisKey="MaSP", OtherKey="MaSP")]
-		public EntitySet<QL_ChiTietHoaDon> QL_ChiTietHoaDons
-		{
-			get
-			{
-				return this._QL_ChiTietHoaDons;
-			}
-			set
-			{
-				this._QL_ChiTietHoaDons.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_SanPham_QL_NguyenLieu_SanPham", Storage="_QL_NguyenLieu_SanPhams", ThisKey="MaSP", OtherKey="MaSP")]
-		public EntitySet<QL_NguyenLieu_SanPham> QL_NguyenLieu_SanPhams
-		{
-			get
-			{
-				return this._QL_NguyenLieu_SanPhams;
-			}
-			set
-			{
-				this._QL_NguyenLieu_SanPhams.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_LoaiSanPham_QL_SanPham", Storage="_QL_LoaiSanPham", ThisKey="MaLoaiSP", OtherKey="MaLoaiSP", IsForeignKey=true)]
-		public QL_LoaiSanPham QL_LoaiSanPham
-		{
-			get
-			{
-				return this._QL_LoaiSanPham.Entity;
-			}
-			set
-			{
-				QL_LoaiSanPham previousValue = this._QL_LoaiSanPham.Entity;
-				if (((previousValue != value) 
-							|| (this._QL_LoaiSanPham.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._QL_LoaiSanPham.Entity = null;
-						previousValue.QL_SanPhams.Remove(this);
-					}
-					this._QL_LoaiSanPham.Entity = value;
-					if ((value != null))
-					{
-						value.QL_SanPhams.Add(this);
-						this._MaLoaiSP = value.MaLoaiSP;
-					}
-					else
-					{
-						this._MaLoaiSP = default(string);
-					}
-					this.SendPropertyChanged("QL_LoaiSanPham");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_QL_ChiTietHoaDons(QL_ChiTietHoaDon entity)
-		{
-			this.SendPropertyChanging();
-			entity.QL_SanPham = this;
-		}
-		
-		private void detach_QL_ChiTietHoaDons(QL_ChiTietHoaDon entity)
-		{
-			this.SendPropertyChanging();
-			entity.QL_SanPham = null;
-		}
-		
-		private void attach_QL_NguyenLieu_SanPhams(QL_NguyenLieu_SanPham entity)
-		{
-			this.SendPropertyChanging();
-			entity.QL_SanPham = this;
-		}
-		
-		private void detach_QL_NguyenLieu_SanPhams(QL_NguyenLieu_SanPham entity)
-		{
-			this.SendPropertyChanging();
-			entity.QL_SanPham = null;
 		}
 	}
 }

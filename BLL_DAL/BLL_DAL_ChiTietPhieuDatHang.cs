@@ -54,9 +54,9 @@ namespace BLL_DAL
         }
 
         // kiểm tra trùng nguyên liệu
-        public Boolean ktTrung(string maNL)
+        public Boolean ktTrung(string maPhieu,string maNL)
         {
-            if (ff.QL_ChiTietNhapHangs.Where(t => t.MANL == maNL).Count() != 0)
+            if (ff.QL_ChiTietNhapHangs.Where(t => t.MANL == maNL && t.MAHDNH == maPhieu).Count() != 0)
                 return false;
             else
                 return true;

@@ -72,7 +72,7 @@ namespace BLL_DAL
             return maHD;
         }
 
-        public bool themHoaDon(List<QL_ChiTietHoaDon> lstCT, string maND, string maKH, string PhuongThuc, string tienDua, string tienThua, double TongCong, int soLuong)
+        public bool themHoaDon(List<QL_ChiTietHoaDon> lstCT, string maND, string maKH, string PhuongThuc, string tienDua, string tienThua, double TongCong)
         {
             try
             {
@@ -98,7 +98,6 @@ namespace BLL_DAL
                 foreach (QL_ChiTietHoaDon item in lstCT)
                 {
                     item.MaHD = maHD;
-                    item.Soluong = soLuong;
                     qlhd.QL_ChiTietHoaDons.InsertOnSubmit(item);
                 }
                 qlhd.SubmitChanges();

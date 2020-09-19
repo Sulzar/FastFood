@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL_DAL
 {
-    
+
     public class SanPham_BLL_DAL
     {
         #region Properties
@@ -28,7 +28,7 @@ namespace BLL_DAL
         //lay tat ca san pham
         public List<QL_SanPham> getALLSP()
         {
-            return qlsp.QL_SanPhams.Select(t => t).ToList();
+            return loaiSPhetNL(qlsp.QL_SanPhams.Select(t => t).ToList());
         }
 
         // lay tat ca san pham cho grid view
@@ -44,7 +44,7 @@ namespace BLL_DAL
 
         public List<QL_SanPham> getALLByLoaiList(string maloai)
         {
-            return qlsp.QL_SanPhams.Where(t => t.MaLoaiSP == maloai).ToList();
+            return loaiSPhetNL(qlsp.QL_SanPhams.Where(t => t.MaLoaiSP == maloai).ToList());
         }
 
         // lay Loai Nguyen Lieu
@@ -92,6 +92,10 @@ namespace BLL_DAL
 
             foreach (QL_NguyenLieu item in lstnl)
             {
+                if(item.SoLuong == 0)
+                {
+                    continue;
+                }
                 foreach (QL_SanPham itemsp in getALLSanPhamByNguyenLieu(item.MaNL))
                 {
                     lstSP.Add(itemsp);
@@ -99,7 +103,7 @@ namespace BLL_DAL
             }
 
             return lstSP;
-            
+
         }
 
         public QL_SanPham laySP(string maSP)
@@ -125,18 +129,18 @@ namespace BLL_DAL
             List<QL_SanPham> lst = getALLByLoaiList(maLoai);
             foreach (QL_SanPham item in lst)
             {
-                item.TenLoai = loai.TenLoai; 
+                item.TenLoai = loai.TenLoai;
             }
             return lst;
-            
+
         }
-        
+
         // lay Bang San pham _ Loai
         public List<QL_SanPham> laySPAndLoaiTheoLoai(string maloai)
-        {            
-            return (from sp in qlsp.QL_SanPhams from loai in qlsp.QL_LoaiSanPhams where sp.MaLoaiSP == loai.MaLoaiSP && sp.MaLoaiSP == maloai select new QL_SanPham(sp,loai.TenLoai)).Distinct().ToList();
+        {
+            return (from sp in qlsp.QL_SanPhams from loai in qlsp.QL_LoaiSanPhams where sp.MaLoaiSP == loai.MaLoaiSP && sp.MaLoaiSP == maloai select new QL_SanPham(sp, loai.TenLoai)).Distinct().ToList();
         }
-        
+
         // Lay all SP_NguyenLieu
 
         public List<QL_NguyenLieu_SanPham> laySP_NL(string maSP)
@@ -151,9 +155,138 @@ namespace BLL_DAL
 
         public List<QL_NguyenLieu> LayTatCaNguyenLieu()
         {
-            return qlsp.QL_NguyenLieus.Select(t => t).ToList() ;
+            return qlsp.QL_NguyenLieus.Select(t => t).ToList();
         }
-        
+
+        public bool themSanPham(QL_SanPham sp, List<QL_NguyenLieu_SanPham> lstNLSP)
+        {
+            try
+            {
+                qlsp.QL_SanPhams.InsertOnSubmit(sp);
+                foreach (QL_NguyenLieu_SanPham item in lstNLSP)
+                {
+                    qlsp.QL_NguyenLieu_SanPhams.InsertOnSubmit(item);
+
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+        public bool suaSanPham(QL_SanPham sp, List<QL_NguyenLieu_SanPham> lstNLSP)
+        {
+            try
+            {
+                QL_SanPham currentSP = qlsp.QL_SanPhams.Single(t => t.MaSP == sp.MaSP);
+
+                if (currentSP == null)
+                {
+                    return false;
+                }
+
+                currentSP.TenSanPham = sp.TenSanPham;
+                currentSP.Gia = sp.Gia;
+                currentSP.Hinh = sp.Hinh;
+                currentSP.TinhTrang = sp.TinhTrang;
+                currentSP.MaLoaiSP = sp.MaLoaiSP;
+
+                qlsp.SubmitChanges();
+                if (lstNLSP.Count == 0)
+                {
+                    return true;
+                }
+
+                // xoa het nguyen lieu cap nhap lai
+                xoaHetNLcuaSP(currentSP.MaSP);
+                foreach (QL_NguyenLieu_SanPham item in lstNLSP)
+                {
+
+                    qlsp.QL_NguyenLieu_SanPhams.InsertOnSubmit(item);
+
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        private void xoaHetNLcuaSP(string MaSP)
+        {
+            foreach (QL_NguyenLieu_SanPham item in qlsp.QL_NguyenLieu_SanPhams.Where(t => t.MaSP == MaSP))
+            {
+                qlsp.QL_NguyenLieu_SanPhams.DeleteOnSubmit(item);
+            }
+        }
+
+        public bool xoaSP(string maSP)
+        {
+            QL_SanPham sp = qlsp.QL_SanPhams.SingleOrDefault(t => t.MaSP == maSP);
+            try
+            {
+                if (qlsp.QL_SanPhams.Count(t => t.MaSP == sp.MaSP) != 0)
+                {
+                    xoaHetNLcuaSP(sp.MaSP);
+                }
+                else
+                {
+                    qlsp.QL_SanPhams.DeleteOnSubmit(sp);
+
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+
+            }
+
+        }
+
+        public void submitChange()
+        {
+            qlsp.SubmitChanges();
+        }
+
+        public List<QL_SanPham> loaiSPhetNL(List<QL_SanPham> lstsp)
+        {
+            List<QL_SanPham> lst = new List<QL_SanPham>();
+            
+            foreach (QL_SanPham sp in lstsp)
+            {
+                if(sp.MaLoaiSP == "LOAISP02")
+                {
+                    lst.Add(sp);
+                }
+                else if(ktSLNL(sp) == false)
+                {
+                    continue;
+                }
+                lst.Add(sp);
+            }
+            
+            return lst;             
+            
+        }
+
+        private bool ktSLNL(QL_SanPham sp)
+        {
+            foreach (QL_NguyenLieu_SanPham item in qlsp.QL_NguyenLieu_SanPhams.Where(t => t.MaSP == sp.MaSP))
+            {
+                QL_NguyenLieu nl = qlsp.QL_NguyenLieus.SingleOrDefault(t => t.MaNL == item.MaNL);
+                if(nl.SoLuong == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
 
         #endregion
     }
